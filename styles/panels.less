@@ -71,6 +71,15 @@ atom-panel.modal {
 
 // ------------------------------------------------------------------- Left pane
 
+atom-dock.left atom-pane {
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .atom-dock-inner.left {
   color: @dark-tone-alt;
   background-color: @dark-tone-alt-lighten;
@@ -108,18 +117,6 @@ atom-panel.modal {
       }
     }
   }
-
-}
-
-.atom-dock-inner.left.atom-dock-open:hover {
-  width: unset;
-}
-
-.atom-dock-inner.left.atom-dock-open {
-  position: absolute;
-  z-index: 100;
-  width: 0;
-  border-right: 16px solid @dark-tone-alt-lighten;
 }
 
 // ----------------------------------------------------------------- Bottom pane
