@@ -6,15 +6,21 @@
 // Overrides: atom/tree-view
 
 
-.tree-view-resizer {
-  border-right: 1px solid @base-border-color;
-}
-
 .tree-view {
+  padding: 12px;
   color: @text-color;
-  background-color: @tree-view-background-color;
 
+  .list-tree {
+    color: fadeout(@light-tone, 30%);
+  }
+
+  .list-nested-item.selected,
   .list-item.selected {
-    color: @text-color-selected;
+    color: @light-tone;
+
+    &::before {
+      background-color: @dark-tone-alt;
+      border-radius: 2px;
+    }
   }
 }

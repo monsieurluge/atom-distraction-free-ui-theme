@@ -2,9 +2,10 @@
 // Overrides: atom/tabs
 
 @tab-height: 40px;
+@icon-size: 16px;
 
 .tab-bar {
-  margin: 6px;
+  margin: 0;
   padding: 0;
 
   .tab {
@@ -28,19 +29,20 @@
     // ------------------------------------------------ "close" icon (the cross)
 
     .close-icon {
-      top: 13px;
+      top: 12px;
       right: 6px;
-      width: 16px;
-      height: 16px;
+      width: @icon-size;
+      height: @icon-size;
       color: @light-tone;
       opacity: 0;
       transition: opacity 0.3s;
       border-radius: 3px;
 
       &::before {
-        width: 16px;
-        height: 16px;
         display: block;
+        width: @icon-size;
+        height: @icon-size;
+        line-height: @icon-size;
         text-align: center;
       }
     }
@@ -83,7 +85,7 @@
 // --------------------------------------------------------- main editor tab bar
 
 atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
-  margin: 6px 0 0 16px;
+  margin-top: 6px;
   z-index: 2;
   transition: opacity 0.3s;
 
@@ -103,5 +105,19 @@ atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
 // ----------------------------------------------------------- left pane tab bar
 
 .atom-dock-inner.left .tab-bar {
-  margin: 16px;
+  margin: 12px;
+  color: @dark-tone-alt-lighten;
+  border: 1px solid @dark-tone-alt-lighten;
+
+  .tab {
+    &:hover {
+      color: fadeout(@light-tone, 30%);
+      background-color: @dark-tone-alt;
+    }
+
+    &.active {
+      color: @light-tone;
+      background-color: @dark-tone-alt-lighten;
+    }
+  }
 }

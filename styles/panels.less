@@ -81,8 +81,7 @@ atom-dock.left atom-pane {
 }
 
 .atom-dock-inner.left {
-  color: @dark-tone-alt;
-  background-color: @dark-tone-alt-lighten;
+  background-color: inherit;
 
   .atom-dock-mask,
   .inset-panel,
@@ -92,30 +91,11 @@ atom-dock.left atom-pane {
   }
 
   .atom-dock-resize-handle {
-    width: 0;
+    width: 4px;
   }
 
   .atom-dock-toggle-button-inner {
     color: @light-tone;
-  }
-
-  // ---------- tabs
-
-  .tab-bar {
-    margin: 16px 5px 16px 16px;
-    box-shadow: 0 0 9px;
-
-    .tab {
-      &:hover {
-        color: fadeout(@dark-tone-alt, 30%);
-        background-color: fadeout(@light-tone, 30%);
-      }
-
-      &.active {
-        color: @dark-tone-alt;
-        background-color: @light-tone;
-      }
-    }
   }
 }
 
