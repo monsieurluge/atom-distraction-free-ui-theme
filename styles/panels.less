@@ -15,17 +15,15 @@
 }
 
 atom-pane-resize-handle {
-  border: 0 dashed transparent;
+  border: none;
   transition: border-color 0.3s;
 
   &.vertical {
-    margin: 0 20px 0;
-    border-top: 4px dotted transparent;
+    border-top: 1px solid fadeout(@light-tone, 80%);
   }
 
   &.horizontal {
-    margin: 20px 0 20px;
-    border-left: 4px dotted transparent;
+    border-left: 1px solid fadeout(@light-tone, 80%);
   }
 
   &:hover {
