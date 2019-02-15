@@ -1,20 +1,14 @@
 .scrollbars-visible-always /deep/ ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-
-  &-track {
-    background-color: transparent;
-  }
+  width: 8px;
+  height: 8px;
 
   &-thumb {
-    background-color: fadeout(@light-tone, 50%);
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
 
     &:hover {
-      background-color: @light-tone;
+      background-color: rgba(255, 255, 255, 0.5);
     }
-
-    &:window-inactive {}
   }
 }
 
