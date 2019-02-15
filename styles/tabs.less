@@ -1,8 +1,8 @@
 // Displays selectable tabs above the editor.
 // Overrides: atom/tabs
 
-@tab-height: 40px;
-@icon-size: 16px;
+@tab-height: 32px;
+@icon-size: 32px;
 
 .tab-bar {
   margin: 0;
@@ -19,7 +19,7 @@
 
     &:hover {
       color: fadeout(@light-tone, 30%);
-      background-color: fadeout(@dark-tone-alt, 30%);
+      background-color: @dark-tone;
     }
 
     &.active {
@@ -30,14 +30,10 @@
     // ------------------------------------------------ "close" icon (the cross)
 
     .close-icon {
-      top: 12px;
-      right: 6px;
-      width: @icon-size;
-      height: @icon-size;
-      color: @light-tone;
+      top: 0;
+      right: 0;
       opacity: 0;
       transition: opacity 0.3s;
-      border-radius: 3px;
 
       &::before {
         display: block;
@@ -86,19 +82,33 @@
 // --------------------------------------------------------- main editor tab bar
 
 atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
+  position: relative;
   z-index: 2;
-  transition: opacity 0.3s;
 
-  .tab {
-    opacity: 0.5;
-  }
-
-  &:hover .tab {
-    opacity: 1;
-  }
+  // ----------------------------- active tab
 
   .tab.active {
-    opacity: 1;
+    position: absolute;
+    bottom: calc(-1 * @tab-height);
+    left: 6px;
+    max-width: none;
+    height: calc(@tab-height - 6px);
+    line-height: calc(@tab-height - 6px);
+    background-color: fadeout(@dark-tone, 30%);
+    border-radius: 5px;
+
+    .close-icon {
+      width: calc(@tab-height - 6px);
+      height: calc(@tab-height - 6px);
+      line-height: calc(@tab-height - 6px);
+      border-radius: 0 5px 5px 0;
+
+      &::before {
+        width: calc(@tab-height - 6px);
+        height: calc(@tab-height - 6px);
+        line-height: calc(@tab-height - 6px);
+      }
+    }
   }
 }
 
