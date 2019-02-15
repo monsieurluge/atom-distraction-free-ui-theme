@@ -2,7 +2,7 @@
 // Overrides: atom/tabs
 
 @tab-height: 32px;
-@icon-size: 32px;
+@icon-size: 8px;
 
 .tab-bar {
   margin: 0;
@@ -37,9 +37,9 @@
 
       &::before {
         display: block;
-        width: @icon-size;
-        height: @icon-size;
-        line-height: @icon-size;
+        width: @tab-height;
+        height: @tab-height;
+        line-height: @tab-height;
         text-align: center;
       }
     }
@@ -56,14 +56,16 @@
     // -------------------------------------------- "modified" icon (the circle)
 
     &.modified:not(:hover) .close-icon {
-      top: 15px;
       opacity: 1;
-      border-color: @accent;
+      width: 6px;
+      height: 6px;
+      border: none;
+      border-radius: 100%;
       background-color: @accent;
     }
 
     &.modified:hover .close-icon {
-      color: @light-tone;
+      color: @accent-alt;
     }
 
     // -------------------------------------------------------- "dragging a tab"
@@ -107,6 +109,15 @@ atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
         height: calc(@tab-height - 6px);
         line-height: calc(@tab-height - 6px);
       }
+    }
+
+    &.modified:not(:hover) .close-icon { // remove duplication !
+      opacity: 1;
+      width: 6px;
+      height: 6px;
+      border: none;
+      border-radius: 100%;
+      background-color: @accent;
     }
   }
 }
