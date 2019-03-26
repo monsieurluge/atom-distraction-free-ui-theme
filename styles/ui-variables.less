@@ -4,12 +4,10 @@
 
 // Overrides: atom/static/variables/ui-variables.less
 
-@dark-tone: #2f2d2c;
+@dark-tone: #3e3a37;
 @light-tone: #dcd2cd;
 @accent: #dcd838;
-@accent-alt: #754f3c;
-@dark-tone-alt: #3e3a37;
-@dark-tone-alt-lighten: #4c4743;
+@background-color-highlight: #4c4743;
 
 @cyan: #80bdcc;
 @blue: #80a4cc;
@@ -19,15 +17,15 @@
 @orange: #d0a770;
 
 // Text Colors
-@text-color:           hsl(0,0%,66%);
-@text-color-subtle:    hsl(0,0%,50%);
-@text-color-highlight: hsl(0,0%,94%);
-@text-color-selected:  hsl(0,0%,100%);
+@text-color:           @light-tone;
+@text-color-subtle:    darken(@light-tone, 5%);
+@text-color-highlight: #ffffff;
+@text-color-selected:  @accent;
 
-@text-color-info:    hsl(219,  79%, 66%);
-@text-color-success: hsl(140,  44%, 62%);
-@text-color-warning: hsl( 36,  60%, 72%);
-@text-color-error:   hsl(  9, 100%, 64%);
+@text-color-info:    @blue;
+@text-color-success: @green;
+@text-color-warning: @orange;
+@text-color-error:   @red;
 
 // Background colors
 @background-color-info:    hsl(208, 100%, 50%);
@@ -37,26 +35,29 @@
 
 @background-color-highlight: lighten(@base-background-color, 5%);
 @background-color-selected:  lighten(@base-background-color, 10%);
-@app-background-color:       @dark-tone;
+@app-background-color:       darken(@base-background-color, 5%);
 
 // Base colors
 @base-background-color: @dark-tone;
-@base-border-color:     @dark-tone;
+@base-border-color:     lighten(@base-background-color, 5%);
 
 // Component colors
-@pane-item-background-color: @dark-tone;
+@pane-item-background-color: @base-background-color;
 @pane-item-border-color:     @base-border-color;
 
-@tool-panel-background-color: @dark-tone;
+@input-background-color: @base-background-color;
+@input-border-color:     @base-border-color;
+
+@tool-panel-background-color: @base-background-color;
 @tool-panel-border-color:     @base-border-color;
 
-@inset-panel-background-color: @dark-tone;
+@inset-panel-background-color: @base-background-color;
 @inset-panel-border-color:     @base-border-color;
 
-@panel-heading-background-color: @dark-tone;
+@panel-heading-background-color: @base-background-color;
 @panel-heading-border-color:     @base-border-color;
 
-@overlay-background-color: lighten(@base-background-color, 5%);
+@overlay-background-color: @base-background-color;
 @overlay-border-color:     @base-border-color;
 
 @button-background-color:          lighten(@dark-tone, 10%);
@@ -64,7 +65,7 @@
 @button-background-color-selected: @button-background-color-hover;
 @button-border-color:              @base-border-color;
 
-@tab-bar-background-color:    @dark-tone;
+@tab-bar-background-color:    @app-background-color;
 @tab-bar-border-color:        @base-border-color;
 @tab-background-color:        @dark-tone;
 @tab-background-color-active: lighten(@dark-tone, 10%);
@@ -81,15 +82,13 @@
 @ui-site-color-5: #EBDD5B;             // yellow
 
 // Sizes
-@font-size: 12px;
-@input-font-size: 14px;
-
 @disclosure-arrow-size: 12px;
-
 @component-padding: 10px;
 @component-icon-padding: 5px;
 @component-icon-size: 16px;
 @component-line-height: 25px;
+@input-font-size: 14px;
+@font-size: 12px;
 
 // Misc
 @component-border-radius: 2px;
