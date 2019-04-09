@@ -59,7 +59,8 @@ atom-workspace-axis.vertical {
     background-color: @base-background-color;
   }
 
-  .atom-dock-resize-handle {
+  .atom-dock-resize-handle,
+  atom-pane-resize-handle {
     height: 4px;
     background-color: @app-background-color;
     transition: background-color 0.3s;
@@ -75,7 +76,7 @@ atom-workspace-axis.vertical {
 atom-workspace-axis.vertical .find-and-replace,
 atom-workspace-axis.vertical .project-find {
   background-color: @app-background-color;
-  border: 10px solid #3c3936;
+  border: 10px solid @base-background-color;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5) inset;
 }
 
