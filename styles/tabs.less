@@ -6,134 +6,65 @@
 
 .tab-bar {
   margin: 0;
-  padding: 0;
+  padding: 0 0 6px 0;
   background-color: @tab-bar-background-color;
 
   .tab {
+    position: relative;
     margin: 0;
+    padding: 0 1rem;
     height: @tab-height;
     line-height: @tab-height;
-    color: fadeout(@light-tone, 70%);
+    color: fadeout(@light-tone, 80%);
     font-size: 1rem;
+    text-align: center;
     transition: color 0.3s, background-color 0.3s;
 
-    &:hover {
-      color: fadeout(@light-tone, 30%);
-      background-color: @background-color-highlight;
-    }
-
     &.active {
-      color: @light-tone;
+      &::before {
+        position: absolute;
+        bottom: 2px;
+        left: calc(50% - 3px);
+        width: 6px;
+        height: 6px;
+        content: "";
+        background-color: fadeout(@light-tone, 80%);
+        border-radius: 100%;
+      }
     }
 
-    // ------------------------------------------------ "close" icon (the cross)
+    &:hover {
+      background-color: @app-background-color;
+    }
+
+    // ------------------------------------------------------------ "close" icon
 
     .close-icon {
-      top: 0;
-      right: 0;
-      opacity: 0;
-      transition: opacity 0.3s;
-
-      &::before {
-        display: block;
-        width: @tab-height;
-        height: @tab-height;
-        line-height: @tab-height;
-        text-align: center;
-      }
+      display: none;
     }
 
-    &:hover .close-icon {
-      opacity: 1;
+    // ---------------------------------------------------------- "modified" tab
 
-      &:hover {
-        color: @base-background-color;
-        background-color: @accent;
-      }
-    }
-
-    // -------------------------------------------- "modified" icon (the circle)
-
-    &.modified:not(:hover) .close-icon {
-      opacity: 1;
-      width: 6px;
-      height: 6px;
-      border: none;
-      border-radius: 100%;
+    &.modified::before {
       background-color: @accent;
-    }
-
-    &.modified:hover .close-icon {
-      color: @base-background-color;
     }
 
     // -------------------------------------------------------- "dragging a tab"
 
-    &.is-dragging {
-      & .close-icon {
-        visibility: hidden;
-      }
-    }
+    &.is-dragging {}
   }
-}
 
-// --------------------------------------------------------- main editor tab bar
-
-atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
-  position: relative;
-  z-index: 2;
-
-  // ----------------------------- active tab
-
-  // .tab.active {
-  //   position: absolute;
-  //   bottom: calc(-1 * @tab-height);
-  //   left: 6px;
-  //   max-width: none;
-  //   height: calc(@tab-height - 6px);
-  //   line-height: calc(@tab-height - 6px);
-  //   background-color: fadeout(@dark-tone, 30%);
-  //   border-radius: 5px;
-  //
-  //   .close-icon {
-  //     width: calc(@tab-height - 6px);
-  //     height: calc(@tab-height - 6px);
-  //     line-height: calc(@tab-height - 6px);
-  //     border-radius: 0 5px 5px 0;
-  //
-  //     &::before {
-  //       width: calc(@tab-height - 6px);
-  //       height: calc(@tab-height - 6px);
-  //       line-height: calc(@tab-height - 6px);
-  //     }
-  //   }
-  //
-  //   &.modified:not(:hover) .close-icon { // remove duplication !
-  //     opacity: 1;
-  //     width: 6px;
-  //     height: 6px;
-  //     border: none;
-  //     border-radius: 100%;
-  //     background-color: @accent;
-  //   }
-  // }
+  &:hover .tab {
+    color: @light-tone;
+  }
 }
 
 // ----------------------------------------------------------- left pane tab bar
 
 .atom-dock-inner.left .tab-bar {
-  margin: 12px;
-  color: @background-color-highlight;
-  border: 1px solid @background-color-highlight;
+  background-color: @app-background-color;
 
-  .tab {
-    &:hover {
-      color: fadeout(@light-tone, 30%);
-    }
-
-    &.active {
-      color: @light-tone;
-      background-color: @background-color-highlight;
-    }
+  .tab:hover {
+    background-color: @base-background-color;
   }
 }
