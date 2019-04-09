@@ -1,38 +1,20 @@
-// Panels
-// -------------------
-// Overrides: atom/static/panels.less
-
-atom-pane {
-  border: none;
-}
+// --------------------------------------------------------------------- generic
 
 .panel-heading {
   border-bottom: 1px solid @panel-heading-border-color;
-  background-color: @panel-heading-background-color;
 }
 
-.inset-panel {
-  background-color: @inset-panel-background-color;
-  .panel-heading {
-    background-color: lighten(@inset-panel-background-color, 4%);
-  }
+.atom-dock-mask {
+  background-color: transparent;
 }
 
-atom-pane-resize-handle {
-  border: none;
-  transition: border-color 0.3s;
+// toggle button
 
-  &.vertical {
-    border-top: 1px solid @dark-tone;
-  }
-
-  &.horizontal {
-    border-left: 1px solid @dark-tone;
-  }
+.atom-dock-toggle-button {
+  display: none;
 }
 
-// Modal -------------------
-// Used on top of the editor, like the Command Palette.
+// modal
 
 atom-panel.modal {
   border: 1px solid @overlay-border-color;
@@ -40,38 +22,65 @@ atom-panel.modal {
   box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
 }
 
-// ------------------------------------------------------------------- Left pane
+// ------------------------------------------------------------------ left panel
 
-atom-dock.left atom-pane {
-  opacity: 0;
-  transition: opacity 0.3s;
-
-  &:hover {
-    opacity: 1;
+atom-workspace > atom-workspace-axis.horizontal > .left {
+  .atom-dock-mask,
+  .tool-panel {
+    background-color: transparent;
   }
 }
 
-.atom-dock-inner.left {
-  background-color: inherit;
+atom-dock.left {
+  .atom-dock-resize-handle {
+    width: 4px;
+    background-color: @app-background-color;
+    transition: background-color 0.3s;
 
-  .atom-dock-mask,
-  .inset-panel,
-  .tree-view,
-  .tool-panel {
-    background-color: inherit;
+    &:hover {
+      background-color: @light-tone;
+    }
+  }
+}
+
+// ---------------------------------------------------------------- center panel
+
+atom-workspace-axis.vertical {
+  atom-dock.bottom {
+    background-color: @base-background-color;
   }
 
   .atom-dock-resize-handle {
-    width: 4px;
-  }
+    height: 4px;
+    background-color: @app-background-color;
+    transition: background-color 0.3s;
 
-  .atom-dock-toggle-button-inner {
-    color: @light-tone;
+    &:hover {
+      background-color: @light-tone;
+    }
   }
 }
 
-// ----------------------------------------------------------------- Bottom pane
+// --------------------------------------------- center panel / find and replace
 
-atom-panel-container.bottom {
-  margin-left: 16px;
+atom-workspace-axis.vertical .find-and-replace {
+  background-color: @app-background-color;
+  border: 10px solid #3c3936;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5) inset;
+}
+
+// ---------------------------------------------------------------- bottom panel
+
+// atom-panel-container.bottom {
+//   margin-left: 16px;
+// }
+
+// ------------------------------------------------------------------ status bar
+
+atom-panel.footer.tool-panel.panel-footer {
+  background-color: transparent;
+
+  .status-bar {
+    background-color: transparent;
+  }
 }

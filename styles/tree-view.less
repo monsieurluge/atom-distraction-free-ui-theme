@@ -1,16 +1,15 @@
-
-// Tree View
-// -------------------
-
-// Used to explore and open files in the current project.
-// Overrides: atom/tree-view
+@tree-view-text-color: fadeout(@light-tone, 30%);
 
 .tree-view {
-  padding: 12px;
-  color: @text-color;
+  padding: @component-padding;
+  color: @tree-view-text-color;
 
   .list-tree {
-    color: fadeout(@light-tone, 30%);
+    color: @tree-view-text-color;
+  }
+
+  .list-item:hover {
+    color: @light-tone;
   }
 
   .list-nested-item.selected,
@@ -18,8 +17,8 @@
     color: @light-tone;
 
     &::before {
-      background-color: @dark-tone-alt;
-      border-radius: 2px;
+      background-color: @background-color-highlight;
+      border-radius: 3px;
     }
   }
 }

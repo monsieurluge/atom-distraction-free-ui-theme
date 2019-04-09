@@ -7,7 +7,7 @@
 .tab-bar {
   margin: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: @tab-bar-background-color;
 
   .tab {
     margin: 0;
@@ -19,12 +19,11 @@
 
     &:hover {
       color: fadeout(@light-tone, 30%);
-      background-color: @dark-tone;
+      background-color: @background-color-highlight;
     }
 
     &.active {
       color: @light-tone;
-      background-color: @dark-tone-alt;
     }
 
     // ------------------------------------------------ "close" icon (the cross)
@@ -48,7 +47,7 @@
       opacity: 1;
 
       &:hover {
-        color: @accent-alt;
+        color: @base-background-color;
         background-color: @accent;
       }
     }
@@ -65,14 +64,12 @@
     }
 
     &.modified:hover .close-icon {
-      color: @accent-alt;
+      color: @base-background-color;
     }
 
     // -------------------------------------------------------- "dragging a tab"
 
     &.is-dragging {
-      background: @dark-tone;
-
       & .close-icon {
         visibility: hidden;
       }
@@ -88,56 +85,55 @@ atom-workspace-axis.vertical > atom-pane-container.panes .tab-bar {
 
   // ----------------------------- active tab
 
-  .tab.active {
-    position: absolute;
-    bottom: calc(-1 * @tab-height);
-    left: 6px;
-    max-width: none;
-    height: calc(@tab-height - 6px);
-    line-height: calc(@tab-height - 6px);
-    background-color: fadeout(@dark-tone, 30%);
-    border-radius: 5px;
-
-    .close-icon {
-      width: calc(@tab-height - 6px);
-      height: calc(@tab-height - 6px);
-      line-height: calc(@tab-height - 6px);
-      border-radius: 0 5px 5px 0;
-
-      &::before {
-        width: calc(@tab-height - 6px);
-        height: calc(@tab-height - 6px);
-        line-height: calc(@tab-height - 6px);
-      }
-    }
-
-    &.modified:not(:hover) .close-icon { // remove duplication !
-      opacity: 1;
-      width: 6px;
-      height: 6px;
-      border: none;
-      border-radius: 100%;
-      background-color: @accent;
-    }
-  }
+  // .tab.active {
+  //   position: absolute;
+  //   bottom: calc(-1 * @tab-height);
+  //   left: 6px;
+  //   max-width: none;
+  //   height: calc(@tab-height - 6px);
+  //   line-height: calc(@tab-height - 6px);
+  //   background-color: fadeout(@dark-tone, 30%);
+  //   border-radius: 5px;
+  //
+  //   .close-icon {
+  //     width: calc(@tab-height - 6px);
+  //     height: calc(@tab-height - 6px);
+  //     line-height: calc(@tab-height - 6px);
+  //     border-radius: 0 5px 5px 0;
+  //
+  //     &::before {
+  //       width: calc(@tab-height - 6px);
+  //       height: calc(@tab-height - 6px);
+  //       line-height: calc(@tab-height - 6px);
+  //     }
+  //   }
+  //
+  //   &.modified:not(:hover) .close-icon { // remove duplication !
+  //     opacity: 1;
+  //     width: 6px;
+  //     height: 6px;
+  //     border: none;
+  //     border-radius: 100%;
+  //     background-color: @accent;
+  //   }
+  // }
 }
 
 // ----------------------------------------------------------- left pane tab bar
 
 .atom-dock-inner.left .tab-bar {
   margin: 12px;
-  color: @dark-tone-alt-lighten;
-  border: 1px solid @dark-tone-alt-lighten;
+  color: @background-color-highlight;
+  border: 1px solid @background-color-highlight;
 
   .tab {
     &:hover {
       color: fadeout(@light-tone, 30%);
-      background-color: @dark-tone-alt;
     }
 
     &.active {
       color: @light-tone;
-      background-color: @dark-tone-alt-lighten;
+      background-color: @background-color-highlight;
     }
   }
 }
