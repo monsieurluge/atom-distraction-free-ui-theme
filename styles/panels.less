@@ -41,6 +41,15 @@ atom-dock.left {
       background-color: @light-tone;
     }
   }
+
+  atom-pane-container.panes {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 // ---------------------------------------------------------------- center panel
