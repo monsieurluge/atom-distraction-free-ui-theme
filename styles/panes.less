@@ -1,22 +1,37 @@
 atom-pane-container {
-    atom-pane {
-        background-color: @app-background-color;
-        border: none;
+  // atom-pane {
+  //   background-color: @app-background-color;
+  //   border: none;
+  // }
+
+  // atom-pane-axis.horizontal > * {
+  //   border-right: 1px solid darken(@app-background-color, 1%);
+  //
+  //   &:last-child {
+  //     border-right: none;
+  //   }
+  // }
+
+  // atom-pane-axis.vertical > * {
+  //   border-bottom: 1px solid darken(@app-background-color, 1%);
+  //
+  //   &:last-child {
+  //     border-bottom: none;
+  //   }
+  // }
+}
+
+// --------------------------------------------------------------- settings view
+
+atom-pane .settings-view {
+  .config-menu {
+    padding: 5px;
+    background-color: @app-background-color;
+    border: 10px solid @base-background-color;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5) inset;
+
+    .button-area {
+      margin: 10px 0 0 0;
     }
-
-    atom-pane-axis.horizontal > * {
-        border-right: 1px solid darken(@app-background-color, 1%);
-
-        &:last-child {
-            border-right: none;
-        }
-    }
-
-    atom-pane-axis.vertical > * {
-        border-bottom: 1px solid darken(@app-background-color, 1%);
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
+  }
 }
