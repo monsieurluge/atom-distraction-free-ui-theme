@@ -84,6 +84,22 @@ atom-workspace-axis.vertical {
       background-color: @light-tone;
     }
   }
+
+  // dirty fix
+  atom-pane-resize-handle.vertical {
+    margin-bottom: 4px;
+
+    &::before {
+      top: 0;
+      height: 4px;
+      background-color: @app-background-color;
+      transition: background-color 0.3s;
+    }
+
+    &:hover::before {
+      background-color: @light-tone;
+    }
+  }
 }
 
 // --------------------------------------------- center panel / find and replace
