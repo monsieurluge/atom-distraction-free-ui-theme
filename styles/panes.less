@@ -6,15 +6,20 @@ atom-pane-container {
 
 // --------------------------------------------------------------- settings view
 
-atom-pane .settings-view {
+atom-pane-container atom-pane .item-views .pane-item {
+  background-color: @app-background-color;
+
   .config-menu {
-    padding: 5px;
-    background-color: @app-background-color;
-    border: 10px solid @base-background-color;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5) inset;
+    padding: @component-padding;
+    background-color: unset;
+    border: none;
 
     .button-area {
       margin: 10px 0 0 0;
     }
   }
+}
+
+.settings-view .sub-section .sub-section-heading {
+  background-color: unset;
 }
