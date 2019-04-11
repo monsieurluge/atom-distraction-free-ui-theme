@@ -61,11 +61,26 @@ atom-workspace-axis.vertical {
 
   .atom-dock-resize-handle,
   atom-pane-resize-handle {
-    height: 4px;
     background-color: @app-background-color;
     transition: background-color 0.3s;
 
     &:hover {
+      background-color: @light-tone;
+    }
+  }
+
+  // dirty fix
+  atom-pane-resize-handle.horizontal {
+    margin-right: 4px;
+
+    &::before {
+      left: 0;
+      width: 4px;
+      background-color: @app-background-color;
+      transition: background-color 0.3s;
+    }
+
+    &:hover::before {
       background-color: @light-tone;
     }
   }
