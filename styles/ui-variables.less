@@ -17,9 +17,14 @@
 
 // Text Colors
 @text-color:           @light-tone;
-@text-color-subtle:    darken(@light-tone, 5%);
+@text-color-subtle:    fadeout(@light-tone, 5%);
 @text-color-highlight: #ffffff;
 @text-color-selected:  #ffffff;
+
+@tree-view-text-color: fadeout(@light-tone, 30%);
+@tree-view-text-color-subtle: fadeout(@light-tone, 60%);
+@tree-view-text-color-highlight: @light-tone;
+@tree-view-text-color-selected: @light-tone;
 
 @text-color-info:    @blue;
 @text-color-success: @green;
