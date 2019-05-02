@@ -24,10 +24,21 @@ atom-panel.modal {
 
 // ------------------------------------------------------------------ left panel
 
+atom-workspace > atom-workspace-axis.horizontal {
+    position: relative;
+}
+
 atom-workspace > atom-workspace-axis.horizontal > .left {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+
   .atom-dock-mask,
   .tool-panel {
-    background-color: transparent;
+    background-color: @base-background-color;
   }
 }
 
@@ -39,15 +50,6 @@ atom-dock.left {
 
     &:hover {
       background-color: @light-tone;
-    }
-  }
-
-  atom-pane-container.panes {
-    opacity: 0;
-    transition: opacity 0.3s;
-
-    &:hover {
-      opacity: 1;
     }
   }
 }
