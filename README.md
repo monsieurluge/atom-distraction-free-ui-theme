@@ -10,10 +10,9 @@ This UI theme highlights only the main parts of the editor (the active tab and t
 
 ## Details
 
- - the tree view is not visible by default, you need to hover it to see its content
- - the pending tabs are faded into the background
- - the active tab is brighter and displayed with a subtle background
- - the active text editor tab is bigger and moved on top of the editor
+ - the tree view (well, the entire left panel) is a floating element, better displayed only when necessary via the dedicated key binding
+ - the tabs list is faded when not hovered
+ - the active tab is the one with a dot displayed under its title
  - many of the borders (panels, tabs, lists) are removed
  - less colors and contrasts
 
@@ -34,16 +33,11 @@ This custom style configuration do hide some status bar informations.
 }
 ```
 
-And this one do hide the left panel (hover on the left to show).
+And this one do hide the scrollbars.
 
 ```css
-.atom-dock-inner.left.atom-dock-open:hover {
-  width: unset;
-}
-.atom-dock-inner.left.atom-dock-open {
-  width: 5px;
-  position: absolute;
-  z-index: 100;
+::-webkit-scrollbar {
+    display: none;
 }
 ```
 
@@ -53,10 +47,18 @@ And this one do hide the left panel (hover on the left to show).
 
 ## What it looks like
 
+Default view :
+
 ![base](./screenshots/base.png)
 
-![fuzzy finder](./screenshots/fuzzy_finder.png)
+Active panel :
+
+![fuzzy finder](./screenshots/active_panel.png)
+
+Search box :
 
 ![search panel](./screenshots/search_panel.png)
+
+Tree view :
 
 ![tree view](./screenshots/tree_view.png)
