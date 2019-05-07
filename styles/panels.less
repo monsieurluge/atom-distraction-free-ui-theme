@@ -57,6 +57,10 @@ atom-dock.left {
 // ---------------------------------------------------------------- center panel
 
 atom-workspace-axis.vertical {
+  atom-pane:not(.active) {
+    opacity: 0.7;
+  }
+
   atom-dock.bottom {
     background-color: @base-background-color;
   }
