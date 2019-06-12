@@ -31,7 +31,7 @@ atom-workspace > atom-workspace-axis.horizontal {
 atom-workspace > atom-workspace-axis.horizontal > .left {
   background-color: @base-background-color;
 
-  atom-pane {
+  .atom-dock-content-wrapper {
     opacity: 0;
     transition: opacity 0.5s;
 
@@ -56,11 +56,8 @@ atom-dock.left {
 // ---------------------------------------------------------------- center panel
 
 atom-workspace-axis.vertical {
+  background-color: @base-background-color;
   z-index: 1;
-
-  atom-dock.bottom {
-    background-color: @base-background-color;
-  }
 
   .atom-dock-resize-handle,
   atom-pane-resize-handle {
