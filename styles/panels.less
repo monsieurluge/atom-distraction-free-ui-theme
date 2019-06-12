@@ -29,23 +29,22 @@ atom-workspace > atom-workspace-axis.horizontal {
 }
 
 atom-workspace > atom-workspace-axis.horizontal > .left {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  height: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  background-color: @base-background-color;
 
-  .atom-dock-mask,
-  .tool-panel {
-    background-color: @base-background-color;
+  atom-pane {
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
 atom-dock.left {
   .atom-dock-resize-handle {
     width: 4px;
-    background-color: @base-background-color;
+    background-color: @app-background-color;
     transition: background-color 0.3s;
 
     &:hover {
