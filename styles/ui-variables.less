@@ -6,7 +6,6 @@
 @dark-tone: #3e3a37;
 @light-tone: #dcd2cd;
 @accent: #c327b6;
-@background-color-highlight: #4c4743;
 
 @cyan: #80bdcc;
 @blue: #80a4cc;
@@ -39,7 +38,7 @@
 
 @background-color-highlight: lighten(@base-background-color, 5%);
 @background-color-selected:  lighten(@base-background-color, 10%);
-@app-background-color:       darken(@base-background-color, 3%);
+@app-background-color:       darken(@base-background-color, 2%);
 
 // Base colors
 @base-background-color: @dark-tone;
@@ -72,7 +71,7 @@
 @tab-bar-background-color:    @base-background-color;
 @tab-bar-border-color:        @base-background-color;
 @tab-background-color:        @app-background-color;
-@tab-background-color-active: lighten(@dark-tone, 10%);
+@tab-background-color-active: @base-background-color;
 @tab-border-color:            @app-background-color;
 
 @tree-view-background-color: @dark-tone;

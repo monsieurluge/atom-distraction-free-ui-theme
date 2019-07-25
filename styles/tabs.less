@@ -5,7 +5,7 @@
 @icon-size: 8px;
 
 .tab-bar {
-  margin: 0;
+  margin: 0 0 6px;
   padding: 0;
   background-color: @tab-bar-background-color;
 
@@ -20,17 +20,15 @@
     text-align: center;
     transition: color 0.3s, background-color 0.3s;
 
-    &.active {
-      &::before {
-        position: absolute;
-        bottom: 2px;
-        left: calc(50% - 3px);
-        width: 6px;
-        height: 6px;
-        content: "";
-        background-color: fadeout(@light-tone, 80%);
-        border-radius: 100%;
-      }
+    &.active::before {
+      position: absolute;
+      bottom: 2px;
+      left: calc(50% - 3px);
+      width: 6px;
+      height: 6px;
+      content: "";
+      border-radius: 100%;
+      border: 1px solid @accent;
     }
 
     &:hover {
@@ -46,6 +44,13 @@
     // ---------------------------------------------------------- "modified" tab
 
     &.modified::before {
+      position: absolute;
+      bottom: 2px;
+      left: calc(50% - 3px);
+      width: 6px;
+      height: 6px;
+      content: "";
+      border-radius: 100%;
       background-color: @accent;
     }
 
@@ -61,10 +66,4 @@
 
 // ----------------------------------------------------------- left pane tab bar
 
-.atom-dock-inner.left .tab-bar {
-  background-color: @app-background-color;
-
-  .tab:hover {
-    background-color: @base-background-color;
-  }
-}
+.atom-dock-inner.left .tab-bar {}

@@ -45,11 +45,11 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
 atom-dock.left {
   .atom-dock-resize-handle {
     width: 4px;
-    background-color: @app-background-color;
+    background-color: transparent;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: @light-tone;
+      background-color: @app-background-color;
     }
   }
 }
@@ -72,33 +72,32 @@ atom-workspace-axis.vertical {
 
   // dirty fix
   atom-pane-resize-handle.horizontal {
-    margin-right: 4px;
+    border-left: 1px solid @app-background-color;
 
     &::before {
       left: 0;
       width: 4px;
-      background-color: @app-background-color;
+      background-color: transparent;
       transition: background-color 0.3s;
     }
 
     &:hover::before {
-      background-color: @light-tone;
+      background-color: @app-background-color;
     }
   }
 
-  // dirty fix
   atom-pane-resize-handle.vertical {
-    margin-bottom: 4px;
+    border-top: 1px solid @app-background-color;
 
     &::before {
       top: 0;
       height: 4px;
-      background-color: @app-background-color;
+      background-color: transparent;
       transition: background-color 0.3s;
     }
 
     &:hover::before {
-      background-color: @light-tone;
+      background-color: @app-background-color;
     }
   }
 }
