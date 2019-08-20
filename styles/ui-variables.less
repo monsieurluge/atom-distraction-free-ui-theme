@@ -14,6 +14,11 @@
 @red: #d08585;
 @orange: #d0a770;
 
+// Base colors
+@base-background-color: @dark-tone;
+@base-border-color: @dark-tone;
+@app-background-color: darken(@base-background-color, 5%);
+
 // Text Colors
 @text-color:           @light-tone;
 @text-color-subtle:    fadeout(@light-tone, 5%);
@@ -38,11 +43,6 @@
 
 @background-color-highlight: lighten(@base-background-color, 5%);
 @background-color-selected:  lighten(@base-background-color, 10%);
-@app-background-color:       darken(@base-background-color, 3%);
-
-// Base colors
-@base-background-color: @dark-tone;
-@base-border-color:     lighten(@base-background-color, 5%);
 
 // Component colors
 @pane-item-background-color: @base-background-color;
@@ -69,7 +69,7 @@
 @button-border-color:              @base-border-color;
 
 // @tab-bar-background-color:    @app-background-color;
-@tab-bar-background-color:    darken(@base-background-color, 1%);
+@tab-bar-background-color:    darken(@base-background-color, 2%);
 @tab-bar-border-color:        @base-background-color;
 @tab-background-color:        @base-background-color;
 @tab-background-color-active: @base-background-color;
