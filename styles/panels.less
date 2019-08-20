@@ -60,19 +60,36 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
   background-color: transparent;
 
   .atom-dock-content-wrapper {
-    opacity: 0;
-    transition: opacity 0.5s;
+    background-color: @base-background-color;
 
-    &:hover {
-      opacity: 1;
+    atom-pane-container {
+      z-index: 1;
+
+      atom-pane {
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 }
 
 .atom-dock-resize-handle.left {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  border-right: 4px solid @app-background-color;
+
   width: 4px;
   border-top: none;
   border-bottom: none;
+
+  &:hover {
+    border-right-width: 2px;
+  }
 }
 
 // ---------------------------------------------------------------- center panel
