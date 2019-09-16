@@ -2,24 +2,16 @@
 // ----------------------------------------------------------------- Mini Editor
 // Mini Editors are the "text inputs" used in find+replace or in the settings.
 
-// atom-text-editor[mini] {
-//   padding-left: @component-padding/2;
-//   color: @text-color;
-//   border-radius: @component-border-radius;
-//
-//   .placeholder-text {
-//     color: @text-color-subtle;
-//   }
-// }
+atom-text-editor[mini] {}
+
+// --------------------------------------------------------------- Settings view
+
+.settings-view atom-text-editor[mini] {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 
 // ------------------------------------------------------------ Main Text Editor
 
 atom-workspace-axis.vertical > atom-pane-container.panes atom-text-editor.editor {
   padding: 0 0 0 @component-padding;
 }
-
-// datatip "editor" fix
-// atom-workspace-axis.vertical > atom-pane-container.panes .datatip-marked-text-editor atom-text-editor.editor {
-//   margin: 0px;
-//   padding: 0px;
-// }
