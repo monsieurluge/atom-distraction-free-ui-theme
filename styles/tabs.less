@@ -8,6 +8,15 @@
   margin: 0 0 6px;
   padding: 0;
   background-color: @tab-bar-background-color;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+  &:hover .tab {
+    color: fadeout(@light-tone, 60%);
+
+    &.active {
+      color: @light-tone;
+    }
+  }
 
   .tab {
     position: relative;
@@ -15,24 +24,17 @@
     padding: 0 1rem;
     height: @tab-height;
     line-height: @tab-height;
-    color: fadeout(@light-tone, 80%);
+    color: fadeout(@light-tone, 90%);
     font-size: 1rem;
     text-align: center;
     transition: color 0.3s, background-color 0.3s;
 
-    &.active::before {
-      position: absolute;
-      bottom: 2px;
-      left: calc(50% - 3px);
-      width: 6px;
-      height: 6px;
-      content: "";
-      border-radius: 100%;
-      background-color: @button-background-color;
+    &.active {
+      color: fadeout(@light-tone, 60%);
     }
 
     &:hover {
-      background-color: @tab-background-color;
+      color: @light-tone;
     }
 
     // ------------------------------------------------------------ "close" icon
@@ -56,11 +58,9 @@
 
     // -------------------------------------------------------- "dragging a tab"
 
-    &.is-dragging {}
-  }
-
-  &:hover .tab {
-    color: @light-tone;
+    &.is-dragging {
+      background-color: darken(@tab-background-color, 2%);
+    }
   }
 }
 
