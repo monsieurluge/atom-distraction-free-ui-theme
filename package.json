@@ -1,7 +1,7 @@
 {
   "name": "atom-distraction-free-ui-theme",
   "theme": "ui",
-  "version": "1.19.0",
+  "version": "1.20.0",
   "description": "A distraction free UI theme, for the Atom editor",
   "keywords": [
     "ui",
