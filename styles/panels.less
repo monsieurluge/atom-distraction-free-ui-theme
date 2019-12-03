@@ -60,19 +60,8 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
   background-color: transparent;
 
   .atom-dock-content-wrapper {
-    background-color: @base-background-color;
-
     atom-pane-container {
       z-index: 1;
-
-      atom-pane {
-        opacity: 0;
-        transition: opacity 0.5s;
-
-        &:hover {
-          opacity: 1;
-        }
-      }
     }
   }
 }
@@ -81,13 +70,14 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
   position: absolute;
   z-index: 2;
   height: 100%;
-  border-right: 4px solid @app-background-color;
+  border-right: 4px solid transparent;
 
   width: 4px;
   border-top: none;
   border-bottom: none;
 
   &:hover {
+    border-right-color: @app-background-color;
     border-right-width: 2px;
   }
 }
@@ -96,6 +86,7 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
 
 atom-workspace-axis.vertical {
   background-color: @base-background-color;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   z-index: 1;
 
   atom-pane-resize-handle.horizontal {
