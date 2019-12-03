@@ -1,5 +1,9 @@
 // --------------------------------------------------------------------- generic
 
+atom-workspace.workspace {
+  background-color: @base-background-color;
+}
+
 .panel-heading {
   border-bottom: 1px solid @panel-heading-border-color;
 }
@@ -26,7 +30,7 @@ atom-pane-resize-handle {
 
   &:hover::before {
     background-color: @base-background-color;
-    border-color: @app-background-color;
+    border-color: @base-background-color;
   }
 }
 
@@ -38,7 +42,7 @@ atom-pane-resize-handle {
 
   &:hover {
     background-color: @base-background-color;
-    border-color: @app-background-color;
+    border-color: @base-background-color;
   }
 }
 
@@ -77,7 +81,7 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
   border-bottom: none;
 
   &:hover {
-    border-right-color: @app-background-color;
+    border-right-color: @base-background-color;
     border-right-width: 2px;
   }
 }
@@ -90,7 +94,7 @@ atom-workspace-axis.vertical {
   z-index: 1;
 
   atom-pane-resize-handle.horizontal {
-    border-left: 4px solid @app-background-color;
+    border-left: 4px solid @base-background-color;
 
     &::before {
       left: -6px;
@@ -101,7 +105,7 @@ atom-workspace-axis.vertical {
   }
 
   atom-pane-resize-handle.vertical {
-    border-top: 4px solid @app-background-color;
+    border-top: 4px solid @base-background-color;
 
     &::before {
       top: -6px;
@@ -116,7 +120,7 @@ atom-workspace-axis.vertical {
 
 atom-workspace-axis.vertical .find-and-replace,
 atom-workspace-axis.vertical .project-find {
-  border-top: 4px solid @app-background-color;
+  border-top: 4px solid @base-background-color;
 }
 
 // ---------------------------------------------------------------- bottom panel
@@ -126,7 +130,7 @@ atom-dock.bottom {
 }
 
 .atom-dock-content-wrapper.bottom {
-  border-top: 4px solid @app-background-color;
+  border-top: 4px solid @base-background-color;
 }
 
 .atom-dock-resize-handle.bottom {
@@ -150,7 +154,7 @@ atom-panel.modal.overlay.from-top {
 
 atom-panel.footer.tool-panel.panel-footer {
   z-index: 2;
-  background-color: @app-background-color;
+  background-color: @status-bar-background-color;
 
   .status-bar {
     background-color: transparent;

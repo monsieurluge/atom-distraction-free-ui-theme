@@ -17,7 +17,6 @@
 // Base colors
 @base-background-color: @dark-tone;
 @base-border-color: @dark-tone;
-@app-background-color: darken(@base-background-color, 5%);
 
 // Text Colors
 @text-color:           @light-tone;
@@ -28,7 +27,7 @@
 @tree-view-text-color: fadeout(@light-tone, 30%);
 @tree-view-text-color-subtle: fadeout(@light-tone, 60%);
 @tree-view-text-color-highlight: @light-tone;
-@tree-view-text-color-selected: @tree-view-text-color;
+@tree-view-text-color-selected: @light-tone;
 
 @text-color-info:    @blue;
 @text-color-success: @green;
@@ -69,13 +68,15 @@
 @button-border-color:              @base-border-color;
 
 @tab-bar-background-color:    @base-background-color;
-@tab-bar-border-color:        @app-background-color;
+@tab-bar-border-color:        @base-background-color;
 @tab-background-color:        @base-background-color;
 @tab-background-color-active: @base-background-color;
-@tab-border-color:            @app-background-color;
+@tab-border-color:            @base-background-color;
 
 @tree-view-background-color: @base-background-color;
 @tree-view-border-color:     @base-border-color;
+
+@status-bar-background-color: darken(@base-background-color, 5%);
 
 // Site colors
 @ui-site-color-1: hsl(208, 100%, 50%); // blue
