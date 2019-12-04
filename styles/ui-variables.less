@@ -16,7 +16,7 @@
 
 // Base colors
 @base-background-color: @dark-tone;
-@base-border-color: @dark-tone;
+@base-border-color: darken(@dark-tone, 5%);
 
 // Text Colors
 @text-color:           @light-tone;
@@ -68,13 +68,13 @@
 @button-border-color:              @base-border-color;
 
 @tab-bar-background-color:    @base-background-color;
-@tab-bar-border-color:        lighten(@base-background-color, 5%);
+@tab-bar-border-color:        darken(@base-background-color, 2%);
 @tab-background-color:        @base-background-color;
 @tab-background-color-active: @base-background-color;
 @tab-border-color:            @base-background-color;
 
 @tree-view-background-color: @base-background-color;
-@tree-view-border-color:     @base-border-color;
+@tree-view-border-color:     @tree-view-background-color;
 
 @status-bar-background-color: darken(@base-background-color, 5%);
 

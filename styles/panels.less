@@ -62,6 +62,7 @@ atom-workspace > atom-workspace-axis.horizontal {
 
 atom-workspace > atom-workspace-axis.horizontal > .left {
   background-color: transparent;
+  border-right: 1px solid @base-border-color;
 
   .atom-dock-content-wrapper {
     atom-pane-container {
@@ -74,15 +75,11 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
   position: absolute;
   z-index: 2;
   height: 100%;
-  border-right: 4px solid transparent;
-
   width: 4px;
-  border-top: none;
-  border-bottom: none;
+  border: none;
 
   &:hover {
-    border-right-color: @base-background-color;
-    border-right-width: 2px;
+    background-color: @accent;
   }
 }
 
@@ -90,29 +87,47 @@ atom-workspace > atom-workspace-axis.horizontal > .left {
 
 atom-workspace-axis.vertical {
   background-color: @base-background-color;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   z-index: 1;
 
-  atom-pane-resize-handle.horizontal {
-    border-left: 4px solid @base-background-color;
+  atom-pane-resize-handle {
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: @accent;
+    }
 
     &::before {
-      left: -6px;
-      width: 4px;
-      border-bottom: none;
-      border-top: none;
+      display: none;
     }
   }
 
-  atom-pane-resize-handle.vertical {
-    border-top: 4px solid @base-background-color;
+  atom-pane-resize-handle.horizontal {
+    width: 4px;
+  }
 
-    &::before {
-      top: -6px;
-      height: 4px;
-      border-left: none;
-      border-right: none;
-    }
+  atom-pane-resize-handle.vertical {
+    height: 4px;
+  }
+}
+
+atom-pane-axis.horizontal.pane-row:not(:first-child) {
+  border-top: 1px solid @base-border-color;
+}
+
+atom-pane-axis.horizontal.pane-row {
+  &>atom-pane:not(:first-child) {
+    border-left: 1px solid @base-border-color;
+  }
+}
+
+atom-pane-axis.vertical.pane-column:not(:first-child) {
+  border-left: 1px solid @base-border-color;
+}
+
+atom-pane-axis.vertical.pane-column {
+  &>atom-pane:not(:first-child) {
+    border-top: 1px solid @base-border-color;
   }
 }
 
@@ -120,7 +135,7 @@ atom-workspace-axis.vertical {
 
 atom-workspace-axis.vertical .find-and-replace,
 atom-workspace-axis.vertical .project-find {
-  border-top: 4px solid @base-background-color;
+  border-top: 1px solid @base-border-color;
 }
 
 // ---------------------------------------------------------------- bottom panel
@@ -130,7 +145,7 @@ atom-dock.bottom {
 }
 
 .atom-dock-content-wrapper.bottom {
-  border-top: 4px solid @base-background-color;
+  border-top: 1px solid @base-border-color;
 }
 
 .atom-dock-resize-handle.bottom {
