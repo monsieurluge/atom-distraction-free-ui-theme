@@ -31,4 +31,14 @@
       color: @tree-view-text-color-subtle;
     }
   }
+
+  // remove the icons
+  .list-item .icon::before {
+    display: none;
+  }
+
+  .list-tree.has-collapsable-children .list-nested-item > .list-tree > li.list-item.file,
+  .list-tree.has-collapsable-children .list-nested-item > .list-group > li.list-item.file {
+    padding-left: 0;
+  }
 }
