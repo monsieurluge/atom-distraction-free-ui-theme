@@ -3,6 +3,10 @@
   color: @tree-view-text-color;
   background-color: @tree-view-background-color;
 
+  .header {
+    font-weight: bolder;
+  }
+
   .list-tree {
     padding: 0;
     color: @tree-view-text-color;
@@ -22,13 +26,22 @@
       color: @tree-view-text-color-selected;
 
       &::before {
-        background-color: lighten(@tree-view-background-color, 3%);
+        background-color: @base-background-color;
         border-radius: 3px;
       }
     }
 
     &.status-ignored {
       color: @tree-view-text-color-subtle;
+    }
+  }
+
+  .list-item:not(.directory):not(.header),
+  .list-nested-item:not(.directory):not(.header) {
+    line-height: 1.5em;
+
+    &.selected::before {
+      height: 1.5em;
     }
   }
 
