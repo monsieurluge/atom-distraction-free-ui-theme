@@ -33,6 +33,7 @@
   }
 
   // remove the icons
+
   .list-item .icon::before {
     display: none;
   }
@@ -41,4 +42,11 @@
   .list-tree.has-collapsable-children .list-nested-item > .list-group > li.list-item.file {
     padding-left: 0;
   }
+}
+
+// highlight the ignored files/folders
+
+.tree-view .list-item.status-ignored:hover,
+.tree-view .list-nested-item.status-ignored:hover {
+  color: @tree-view-text-color-highlight;
 }
