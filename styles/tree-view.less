@@ -1,51 +1,28 @@
-.tree-view {
-  padding: @component-padding;
-  color: @tree-view-text-color;
-  background-color: @tree-view-background-color;
+// ------------------------------------------------------------- general styling
 
-  .header {
-    // font-weight: bolder;
-  }
+.tree-view {
+  padding: 20px;
+  background-color: @tree-view-background-color;
 
   .list-tree {
     padding: 0;
     color: @tree-view-text-color;
-  }
-
-  .list-item:hover {
-    color: @tree-view-text-color-highlight;
+    opacity: 0.6;
+    transition: opacity 0.3s;
   }
 
   .list-item,
   .list-nested-item {
-    &:hover {
-      color: @tree-view-text-color-highlight;
-    }
-
-    &.selected {
-      color: @tree-view-text-color-selected;
-
-      &::before {
-        background-color: @base-background-color;
-        border-radius: 3px;
-      }
-    }
-
-    &.status-ignored {
-      color: @tree-view-text-color-subtle;
-    }
+    position: relative;
+    border-bottom: 1px solid transparent;
   }
 
   .list-item:not(.directory):not(.header),
   .list-nested-item:not(.directory):not(.header) {
     line-height: 1.8em;
-
-    &.selected::before {
-      height: 1.8em;
-    }
   }
 
-  // keep only the folders icons
+  // ---------- folders
 
   .list-item:not(.directory):not(.header) .icon::before {
     display: none;
@@ -55,11 +32,75 @@
   .list-tree.has-collapsable-children .list-nested-item > .list-group > li.list-item.file {
     padding-left: 0;
   }
+
+  // ---------- modified items (version control)
+
+  .list-item.status-modified,
+  .list-nested-item.status-modified {
+    color: @tree-view-text-color;
+  }
+
+  // ---------- selected items
+
+  .list-item.selected,
+  .list-nested-item.selected {
+    &::before {
+      display: none;
+    }
+  }
+
+  .list-item.selected,
+  .list-nested-item:not(.directory).selected,
+  .list-nested-item.selected > .list-item.header {
+    color: @tree-view-text-color-selected;
+    border-bottom: 1px solid @tree-view-text-color;
+  }
 }
 
-// highlight the ignored files/folders
+// ----------------------------------------------------------- hovered tree view
 
-.tree-view .list-item.status-ignored:hover,
-.tree-view .list-nested-item.status-ignored:hover {
-  color: @tree-view-text-color-highlight;
+.tree-view:hover {
+  .list-tree {
+    opacity: 1;
+  }
+
+  .list-item {
+    &:hover {
+      color: @tree-view-text-color-highlight;
+      border-bottom: 1px solid @accent;
+    }
+  }
+
+  // ---------- ignored items
+
+  .list-item.status-ignored,
+  .list-nested-item.status-ignored {
+    color: @tree-view-text-color-subtle;
+  }
+
+  // ---------- modified items (version control)
+
+  .list-item.status-modified,
+  .list-nested-item.status-modified {
+    color: @tree-view-text-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: -14px;
+      width: 8px;
+      height: 8px;
+      background-color: @accent;
+      border-radius: 8px;
+    }
+  }
+
+  // ---------- selected items
+
+  .list-item.selected,
+  .list-nested-item:not(.directory).selected,
+  .list-nested-item.selected > .list-item.header {
+    border-bottom: 1px solid @accent;
+  }
 }

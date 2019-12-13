@@ -1,40 +1,23 @@
-// UI Variables
-// -------------------
+// ---------------------------------------------------------------------- colors
 
-// Overrides: atom/static/variables/ui-variables.less
-
-@dark-tone: #3a3630;
+@dark-tone:  #3a3630;
 @light-tone: #cac7ba;
-@accent: #deba2f;
+@accent:     #deba2f;
 
-@cyan: #62c5c1;
-@blue: #75abd4;
-@green: #6faf7a;
+@cyan:   #62c5c1;
+@blue:   #75abd4;
+@green:  #6faf7a;
 @orange: #dc9b69;
 @purple: #a47dd4;
-@red: #dc7069;
+@red:    #dc7069;
 
-// Base colors
+// ----------------------------------------------------------------- base colors
+
 @base-background-color: @dark-tone;
-@base-border-color: darken(@dark-tone, 5%);
+@base-border-color:     darken(@dark-tone, 5%);
 
-// Text Colors
-@text-color:           @light-tone;
-@text-color-subtle:    fadeout(@light-tone, 5%);
-@text-color-highlight: #ffffff;
-@text-color-selected:  #ffffff;
+// --------------------------------------------------------- generic backgrounds
 
-@tree-view-text-color: fadeout(@light-tone, 30%);
-@tree-view-text-color-subtle: fadeout(@light-tone, 60%);
-@tree-view-text-color-highlight: @light-tone;
-@tree-view-text-color-selected: @light-tone;
-
-@text-color-info:    @blue;
-@text-color-success: @green;
-@text-color-warning: @orange;
-@text-color-error:   @red;
-
-// Background colors
 @background-color-info:    hsl(208, 100%, 50%);
 @background-color-success: hsl(160,  70%, 36%);
 @background-color-warning: hsl(32,   60%, 50%);
@@ -43,7 +26,25 @@
 @background-color-highlight: lighten(@base-background-color, 5%);
 @background-color-selected:  lighten(@base-background-color, 10%);
 
-// Component colors
+// ----------------------------------------------------------------------- texts
+
+@text-color:           @light-tone;
+@text-color-subtle:    fadeout(@text-color, 60%);
+@text-color-highlight: #ffffff;
+@text-color-selected:  #ffffff;
+
+@tree-view-text-color:           @text-color;
+@tree-view-text-color-subtle:    @text-color-subtle;
+@tree-view-text-color-highlight: @text-color;
+@tree-view-text-color-selected:  @text-color;
+
+@text-color-info:    @blue;
+@text-color-success: @green;
+@text-color-warning: @orange;
+@text-color-error:   @red;
+
+// ------------------------------------------------------------------ components
+
 @pane-item-background-color: @base-background-color;
 @pane-item-border-color:     @base-border-color;
 
@@ -67,33 +68,36 @@
 @button-background-color-selected: @accent;
 @button-border-color:              @base-border-color;
 
-@tab-bar-background-color:    @base-background-color;
-@tab-bar-border-color:        darken(@base-background-color, 2%);
+@tab-bar-background-color:    darken(@base-background-color, 3%);
+@tab-bar-border-color:        darken(@base-background-color, 3%);
 @tab-background-color:        @base-background-color;
 @tab-background-color-active: @base-background-color;
 @tab-border-color:            @base-background-color;
 
-@tree-view-background-color: darken(@base-background-color, 5%);
+@tree-view-background-color: @base-background-color;
 @tree-view-border-color:     @tree-view-background-color;
 
 @status-bar-background-color: darken(@base-background-color, 5%);
 
-// Site colors
+// ------------------------------------------------------------------------ site
+
 @ui-site-color-1: hsl(208, 100%, 50%); // blue
 @ui-site-color-2: hsl(160,  70%, 42%); // green
 @ui-site-color-3: hsl(32,   60%, 50%); // orange
 @ui-site-color-4: #D831B0;             // pink
 @ui-site-color-5: #EBDD5B;             // yellow
 
-// Sizes
-@disclosure-arrow-size: 12px;
-@component-padding: 10px;
-@component-icon-padding: 5px;
-@component-icon-size: 16px;
-@component-line-height: 25px;
-@input-font-size: 14px;
-@font-size: 12px;
+// ----------------------------------------------------------------------- sizes
 
-// Misc
+@disclosure-arrow-size:  12px;
+@component-padding:      10px;
+@component-icon-padding: 5px;
+@component-icon-size:    16px;
+@component-line-height:  25px;
+@input-font-size:        14px;
+@font-size:              12px;
+
+// ------------------------------------------------------------------------ misc
+
 @component-border-radius: 2px;
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
