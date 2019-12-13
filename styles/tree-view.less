@@ -49,12 +49,12 @@
     }
   }
 
-  .list-item.selected,
-  .list-nested-item:not(.directory).selected,
-  .list-nested-item.selected > .list-item.header {
-    color: @tree-view-text-color-selected;
-    border-bottom: 1px solid @tree-view-text-color;
-  }
+  // .list-item.selected,
+  // .list-nested-item:not(.directory).selected,
+  // .list-nested-item.selected > .list-item.header {
+  //   color: @tree-view-text-color-selected;
+  //   border-bottom: 1px solid @tree-view-text-color;
+  // }
 }
 
 // ----------------------------------------------------------- hovered tree view
@@ -101,6 +101,7 @@
   .list-item.selected,
   .list-nested-item:not(.directory).selected,
   .list-nested-item.selected > .list-item.header {
+    color: @tree-view-text-color-selected;
     border-bottom: 1px solid @accent;
   }
 }
