@@ -4,6 +4,11 @@
   min-width: unset;
 }
 
+.tree-view-root {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
 .tree-view {
   padding: 20px;
   background-color: @tree-view-background-color;
@@ -11,8 +16,6 @@
   .list-tree {
     padding: 0;
     color: @tree-view-text-color;
-    opacity: 0.6;
-    transition: opacity 0.3s;
   }
 
   .list-item,
@@ -63,11 +66,13 @@
 
 // ----------------------------------------------------------- hovered tree view
 
-.tree-view:hover {
-  .list-tree {
-    opacity: 1;
-  }
 
+.tree-view-root:hover {
+  opacity: 1;
+}
+
+
+.tree-view:hover {
   .list-item {
     &:hover {
       border-bottom: 1px solid @accent;
