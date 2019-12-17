@@ -22,12 +22,10 @@
 // -------------------------------------------------------------------- Datatips
 
 .datatip-overlay {
+  background-color: transparent;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 16px;
-
-  .datatip-container {
-    background-color: transparent;
-  }
+  overflow: hidden;
 
   &:hover .datatip-pin-button {
     opacity: 1;
@@ -70,12 +68,12 @@
   .datatip-marked-text-editor-container {
     padding: 0;
 
-    .datatip-marked-text-editor {
-      width: 100%;
-    }
-
     atom-text-editor > div {
       margin: 10px;
     }
+  }
+
+  .datatip-marked-text-editor-container .datatip-marked-text-editor {
+    width: 400px;
   }
 }
