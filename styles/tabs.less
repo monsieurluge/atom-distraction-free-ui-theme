@@ -1,7 +1,7 @@
 // Displays selectable tabs above the editor.
 // Overrides: atom/tabs
 
-@tab-height: 32px;
+@tab-height: 40px;
 @icon-size: 8px;
 
 .tab-bar {
@@ -9,14 +9,6 @@
   padding: 0;
   background-color: @tab-bar-background-color;
   border-bottom: 1px solid @tab-bar-border-color;
-
-  &:hover .tab {
-    color: fadeout(@light-tone, 60%);
-
-    &.active {
-      color: @light-tone;
-    }
-  }
 
   .tab {
     position: relative;
@@ -31,10 +23,6 @@
 
     &.active {
       color: fadeout(@light-tone, 60%);
-    }
-
-    &:hover {
-      color: @light-tone;
     }
 
     // ------------------------------------------------------------ "close" icon
@@ -64,6 +52,20 @@
   }
 }
 
-// ----------------------------------------------------------- left pane tab bar
+// ------------------------------------------------------------- hovered tab bar
 
-.atom-dock-inner.left .tab-bar {}
+.tab-bar:hover {
+  .tab {
+    color: fadeout(@light-tone, 60%);
+
+    &:hover {
+      color: @light-tone;
+      border-bottom: 1px dotted @accent;
+    }
+
+    &.active {
+      color: @light-tone;
+      border-bottom: 1px solid @accent;
+    }
+  }
+}
