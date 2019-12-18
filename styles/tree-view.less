@@ -31,13 +31,23 @@
 
   // ---------- folders
 
-  .list-item:not(.directory):not(.header) .icon::before {
-    display: none;
+  .list-item.header {
+    font-weight: bolder;
+
+    .icon::before {
+      display: none;
+    }
   }
+
+  // ---------- all items except folders / root
 
   .list-tree.has-collapsable-children .list-nested-item > .list-tree > li.list-item.file,
   .list-tree.has-collapsable-children .list-nested-item > .list-group > li.list-item.file {
     padding-left: 0;
+
+    .icon::before {
+      display: none;
+    }
   }
 
   // ---------- modified/created items (version control)
