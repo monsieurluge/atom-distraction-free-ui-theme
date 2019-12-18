@@ -53,8 +53,10 @@
 
   .list-item.selected,
   .list-nested-item.selected {
+    background-color: unset;
+
     &::before {
-      display: none;
+      visibility: hidden;
     }
   }
 }
@@ -65,7 +67,6 @@
 .tree-view-root:hover {
   opacity: 1;
 }
-
 
 .tree-view:hover {
   .list-item {
@@ -118,9 +119,47 @@
   // ---------- selected items
 
   .list-item.selected,
+  .list-nested-item.selected {
+    background-color: transparent;
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+
+  .list-item.selected,
   .list-nested-item:not(.directory).selected,
   .list-nested-item.selected > .list-item.header {
     color: @tree-view-text-color-selected;
     border-bottom: 1px solid @accent;
+  }
+
+  .list-nested-item.directory.selected::before {
+    visibility: visible;
+  }
+
+  .list-group .selected::before,
+  .list-tree .selected::before {
+    height: unset;
+  }
+
+  // ---------- expanded items
+
+  .list-nested-item:not(.project-root).expanded::before {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    bottom: 8px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  list-nested-item.project-root.expanded::before {
+    position: absolute;
+    top: 16px;
+    left: 2px;
+    bottom: 8px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
