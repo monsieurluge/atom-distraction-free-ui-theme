@@ -73,7 +73,6 @@
 
 // ----------------------------------------------------------- hovered tree view
 
-
 .tree-view-root:hover {
   opacity: 1;
 }
@@ -140,8 +139,10 @@
   .list-item.selected,
   .list-nested-item:not(.directory).selected,
   .list-nested-item.selected > .list-item.header {
-    color: @tree-view-text-color-selected;
-    border-bottom: 1px solid @accent;
+    &:not(.project-root-header) {
+      color: @tree-view-text-color-selected;
+      border-bottom: 1px solid @accent;
+    }
   }
 
   .list-nested-item.directory.selected::before {
@@ -171,5 +172,17 @@
     bottom: 8px;
     width: 1px;
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  // ---------- root folders
+
+  .project-root:not(:first-child) {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 3px double rgba(255, 255, 255, 0.1);
+  }
+
+  .project-root-header {
+    color: @accent;
   }
 }
