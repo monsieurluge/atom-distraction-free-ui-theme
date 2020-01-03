@@ -70,6 +70,10 @@
   .list-item.selected,
   .list-nested-item.selected {
     background-color: unset;
+
+    &::before {
+      visibility: hidden;
+    }
   }
 }
 
@@ -157,6 +161,7 @@
     background-color: transparent;
 
     &::before {
+      visibility: visible;
       background-color: transparent;
     }
   }
