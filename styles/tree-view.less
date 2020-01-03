@@ -104,16 +104,16 @@
 
   // ---------- added items (version control)
 
-  .list-nested-item.status-added::after {
+  .list-nested-item.status-added.collapsed::after {
     content: '';
     position: absolute;
-    top: 8px;
-    right: -14px;
-    width: 8px;
-    height: 8px;
+    top: 7px;
+    left: -1px;
+    width: 9px;
+    height: 9px;
     background-color: @green;
     border: 2px solid @tree-view-background-color;
-    border-radius: 4px 4px 0 4px;
+    border-radius: 5px;
   }
 
   .list-item.status-added::after {
@@ -130,17 +130,16 @@
 
   // ---------- modified items (version control)
 
-  .list-nested-item.status-modified::after {
-    color: @tree-view-text-color;
+  .list-nested-item.status-modified.collapsed::after {
     content: '';
     position: absolute;
-    top: 8px;
-    right: -14px;
-    width: 8px;
-    height: 8px;
+    top: 7px;
+    left: -1px;
+    width: 9px;
+    height: 9px;
     background-color: @orange;
     border: 2px solid @tree-view-background-color;
-    border-radius: 4px 4px 0 4px;
+    border-radius: 5px;
   }
 
   .list-item.status-modified::after {
