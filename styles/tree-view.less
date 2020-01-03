@@ -93,36 +93,54 @@
 
   // ---------- added items (version control)
 
-  .list-item.status-added,
-  .list-nested-item.status-added {
-    &::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      right: -14px;
-      width: 8px;
-      height: 8px;
-      border: 2px solid @green;
-      border-radius: 4px 4px 0 4px;
-    }
+  .list-nested-item.status-added::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: -14px;
+    width: 8px;
+    height: 8px;
+    background-color: @green;
+    border: 2px solid @tree-view-background-color;
+    border-radius: 4px 4px 0 4px;
+  }
+
+  .list-item.status-added::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: -14px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid @green;
+    border-radius: 4px 4px 0 4px;
   }
 
   // ---------- modified items (version control)
 
-  .list-item.status-modified,
-  .list-nested-item.status-modified {
+  .list-nested-item.status-modified::after {
     color: @tree-view-text-color;
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: -14px;
+    width: 8px;
+    height: 8px;
+    background-color: @orange;
+    border: 2px solid @tree-view-background-color;
+    border-radius: 4px 4px 0 4px;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      right: -14px;
-      width: 8px;
-      height: 8px;
-      border: 2px solid @accent;
-      border-radius: 4px 4px 0 4px;
-    }
+  .list-item.status-modified::after {
+    color: @tree-view-text-color;
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: -14px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid @orange;
+    border-radius: 4px 4px 0 4px;
   }
 
   // ---------- selected items
