@@ -9,6 +9,12 @@
   transition: opacity 0.3s;
 }
 
+.project-root:not(:first-child) {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 3px double rgba(255, 255, 255, 0.1);
+}
+
 .tree-view {
   padding: 20px;
   background-color: @tree-view-background-color;
@@ -192,12 +198,6 @@
   }
 
   // ---------- root folders
-
-  .project-root:not(:first-child) {
-    margin-top: 1em;
-    padding-top: 1em;
-    border-top: 3px double rgba(255, 255, 255, 0.1);
-  }
 
   .project-root-header {
     color: @tree-view-text-color;
