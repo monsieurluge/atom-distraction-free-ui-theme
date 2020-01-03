@@ -64,10 +64,6 @@
   .list-item.selected,
   .list-nested-item.selected {
     background-color: unset;
-
-    &::before {
-      visibility: hidden;
-    }
   }
 }
 
@@ -78,10 +74,15 @@
 }
 
 .tree-view:hover {
-  .list-item {
-    &:hover {
-      border-bottom: 1px dotted @accent;
-    }
+  .list-item.header:hover::before {
+    color: @accent;
+  }
+
+  .list-item:not(.header):hover::before {
+    height: 100%;
+    width: 1px;
+    left: -14px;
+    border-left: 1px solid @accent;
   }
 
   // ---------- ignored items
@@ -155,21 +156,19 @@
   }
 
   .list-item.selected,
-  .list-nested-item:not(.directory).selected,
-  .list-nested-item.selected > .list-item.header {
-    &:not(.project-root-header) {
-      color: @tree-view-text-color-selected;
-      border-bottom: 1px solid @accent;
-    }
+  .list-nested-item.selected > .list-item.header:not(.project-root-header) {
+    color: @tree-view-text-color-selected;
+  }
+
+  .list-item.selected::before {
+    height: 100%;
+    width: 1px;
+    left: -15px;
+    border-left: 3px solid @accent;
   }
 
   .list-nested-item.directory.selected::before {
     visibility: visible;
-  }
-
-  .list-group .selected::before,
-  .list-tree .selected::before {
-    height: unset;
   }
 
   // ---------- expanded items
