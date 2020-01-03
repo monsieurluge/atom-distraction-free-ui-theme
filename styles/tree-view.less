@@ -16,7 +16,7 @@
 }
 
 .tree-view {
-  padding: 20px;
+  padding: 10px 20px 20px;
   background-color: @tree-view-background-color;
 
   .list-tree {
@@ -119,12 +119,13 @@
   .list-item.status-added::after {
     content: '';
     position: absolute;
-    top: 8px;
-    right: -14px;
-    width: 8px;
-    height: 8px;
-    border: 2px solid @green;
-    border-radius: 4px 4px 0 4px;
+    top: 6px;
+    left: -18px;
+    width: 9px;
+    height: 9px;
+    background-color: @green;
+    border: 2px solid @tree-view-background-color;
+    border-radius: 5px;
   }
 
   // ---------- modified items (version control)
@@ -146,12 +147,13 @@
     color: @tree-view-text-color;
     content: '';
     position: absolute;
-    top: 8px;
-    right: -14px;
-    width: 8px;
-    height: 8px;
-    border: 2px solid @orange;
-    border-radius: 4px 4px 0 4px;
+    top: 6px;
+    left: -18px;
+    width: 9px;
+    height: 9px;
+    background-color: @orange;
+    border: 2px solid @tree-view-background-color;
+    border-radius: 5px;
   }
 
   // ---------- selected items
