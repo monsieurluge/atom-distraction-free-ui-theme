@@ -92,7 +92,7 @@
     height: 100%;
     width: 1px;
     left: -14px;
-    border-left: 1px solid @accent;
+    background-color: @accent;
   }
 
   // ---------- ignored items
@@ -100,59 +100,6 @@
   .list-item.status-ignored,
   .list-nested-item.status-ignored {
     color: @tree-view-text-color-subtle;
-  }
-
-  // ---------- added items (version control)
-
-  .list-nested-item.status-added.collapsed::after {
-    content: '';
-    position: absolute;
-    top: 7px;
-    left: -1px;
-    width: 9px;
-    height: 9px;
-    background-color: @green;
-    border: 2px solid @tree-view-background-color;
-    border-radius: 5px;
-  }
-
-  .list-item.status-added::after {
-    content: '';
-    position: absolute;
-    top: 6px;
-    left: -18px;
-    width: 9px;
-    height: 9px;
-    background-color: @green;
-    border: 2px solid @tree-view-background-color;
-    border-radius: 5px;
-  }
-
-  // ---------- modified items (version control)
-
-  .list-nested-item.status-modified.collapsed::after {
-    content: '';
-    position: absolute;
-    top: 7px;
-    left: -1px;
-    width: 9px;
-    height: 9px;
-    background-color: @orange;
-    border: 2px solid @tree-view-background-color;
-    border-radius: 5px;
-  }
-
-  .list-item.status-modified::after {
-    color: @tree-view-text-color;
-    content: '';
-    position: absolute;
-    top: 6px;
-    left: -18px;
-    width: 9px;
-    height: 9px;
-    background-color: @orange;
-    border: 2px solid @tree-view-background-color;
-    border-radius: 5px;
   }
 
   // ---------- selected items
@@ -173,14 +120,50 @@
   }
 
   .list-item.selected::before {
-    height: 100%;
-    width: 1px;
-    left: -15px;
-    border-left: 3px solid @accent;
+    background-color: @accent;
   }
 
   .list-nested-item.directory.selected::before {
     visibility: visible;
+  }
+
+  // ---------- added items (version control)
+
+  .list-nested-item.status-added > .header::before {
+    color: @green;
+  }
+
+  .list-item.status-added::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -14px;
+    width: 1px;
+    height: 100%;
+    background-color: @green;
+  }
+
+  // ---------- modified items (version control)
+
+  .list-nested-item.status-modified > .header::before {
+    color: @orange;
+  }
+
+  .list-item.status-modified::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -14px;
+    width: 1px;
+    height: 100%;
+    background-color: @orange;
+  }
+
+  // ---------- selected items (part 2)
+
+  .list-item.selected::before {
+    width: 3px;
+    left: -15px;
   }
 
   // ---------- expanded items
