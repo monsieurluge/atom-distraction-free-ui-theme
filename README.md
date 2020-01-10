@@ -51,14 +51,14 @@ Default view :
 
 ![base](./screenshots/base.png)
 
-Active panel :
+Tree view, with new and modified files :
 
-![fuzzy finder](./screenshots/active_panel.png)
+![tree view](./screenshots/tree_view.png)
 
 Search box :
 
 ![search panel](./screenshots/search_panel.png)
 
-Tree view :
+Tabs (active, modified, hovered) :
 
-![tree view](./screenshots/tree_view.png)
+![fuzzy finder](./screenshots/tabs.png)
