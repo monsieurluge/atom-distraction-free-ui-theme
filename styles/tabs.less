@@ -62,6 +62,7 @@
 
     &::after {
       position: absolute;
+      top: 0;
       left: 0;
       right: 0;
       content: "";
@@ -71,7 +72,6 @@
     &:hover {
       color: @light-tone;
       &::after {
-        bottom: -1px;
         height: 1px;
       }
     }
@@ -79,7 +79,6 @@
     &.active {
       color: @light-tone;
       &::after {
-        bottom: -2px;
         height: 3px;
       }
     }
