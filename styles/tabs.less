@@ -1,29 +1,31 @@
 // Displays selectable tabs above the editor.
 // Overrides: atom/tabs
 
-@tab-height: 40px;
+@tab-height: 24px;
 @icon-size: 8px;
 
 .tab-bar {
   margin: 0;
-  padding: 0;
-  background-color: @tab-bar-background-color;
-  border-bottom: 1px solid @tab-bar-border-color;
+  padding: 4px 2px;
+  background-color: transparent;
   z-index: 1;
 
   .tab {
     position: relative;
-    margin: 0;
-    padding: 0 1rem;
+    margin: 0 2px;
+    padding: 2px 1rem;
     height: @tab-height;
     line-height: @tab-height;
-    color: fadeout(@light-tone, 90%);
+    color: fadeout(@light-tone, 80%);
     font-size: 1rem;
     text-align: center;
     transition: color 0.3s, background-color 0.3s;
+    background-color: @tab-background-color;
+    border-radius: 3px;
 
     &.active {
-      color: fadeout(@light-tone, 60%);
+      color: fadeout(@light-tone, 40%);
+      background-color: @tab-background-color;
 
       .title {
         padding: 0;
@@ -40,13 +42,13 @@
 
     &.modified::before {
       position: absolute;
-      bottom: 2px;
-      left: calc(50% - 3px);
-      width: 6px;
-      height: 6px;
+      left: 4px;
+      top: calc(@tab-height / 2 - 2px);
+      width: 4px;
+      height: 4px;
       content: "";
-      border-radius: 100%;
       background-color: @accent;
+      border-radius: 100%;
     }
 
     // -------------------------------------------------------- "dragging a tab"
@@ -62,7 +64,8 @@
 .tab-bar:hover {
   .tab {
     position: relative;
-    color: fadeout(@light-tone, 60%);
+    color: fadeout(@light-tone, 40%);
+    background-color: @tab-background-color;
 
     &::after {
       position: absolute;
@@ -74,17 +77,16 @@
     }
 
     &:hover {
-      color: @light-tone;
-      &::after {
-        height: 1px;
-      }
+      color: @accent;
     }
 
     &.active {
-      color: @light-tone;
-      &::after {
-        height: 3px;
-      }
+      color: @dark-tone;
+      background-color:@tab-background-color-active;
+    }
+
+    &.active.modified::before {
+      background-color: @dark-tone;
     }
   }
 }
