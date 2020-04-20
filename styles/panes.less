@@ -1,25 +1,78 @@
-atom-pane-container {
-  atom-pane-axis.horizontal atom-pane {
-    border: none;
-  }
-}
 
 // --------------------------------------------------------------- settings view
 
-atom-pane-container atom-pane .item-views .pane-item {
+atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical atom-pane-container.panes .settings-view {
+
   background-color: @base-background-color;
 
-  .config-menu {
-    padding: @component-padding;
-    background-color: unset;
-    border: none;
+  // ---------- config menu
 
-    .button-area {
-      margin: 10px 0 0 0;
+  .config-menu {
+    padding: 0;
+    border: unset;
+    background: unset;
+  }
+
+  .panels-menu.nav {
+    margin: 8px;
+    background-color: @base-dark-background-color;
+    border-radius: 3px;
+  }
+
+  .panels-menu.nav li {
+    margin: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .breadcrumb {
+    margin: 8px;
+    line-height: 2em;
+    border: unset;
+    border-radius: 3px;
+  }
+
+  .section {
+    border: unset;
+  }
+
+  // ---------- settings content
+
+  &> .panels {
+    background-color: unset;
+  }
+
+  .sub-section-heading {
+    background-color: @base-background-color;
+  }
+
+  .sub-section-body {
+    border-left: 2px solid @base-dark-background-color;
+  }
+
+  // ---------- keybindings
+
+  .keybinding-panel {
+    thead {
+      background-color: @base-dark-background-color;
     }
   }
 }
 
-.settings-view .sub-section .sub-section-heading {
-  background-color: unset;
+// ------------------------------------------------------------ find and replace
+
+atom-panel-container.bottom .find-and-replace,
+atom-panel-container.bottom .project-find {
+  margin: 8px;
+  background-color: @base-dark-background-color;
+  border-radius: 3px;
+}
+
+// ----------------------------------------------------------- top overlay modal
+
+atom-panel.modal.overlay.from-top {
+  top: 8px;
+  background-color: @base-border-color;
+  border: 6px solid @base-background-color;
+  border-radius: 3px;
 }

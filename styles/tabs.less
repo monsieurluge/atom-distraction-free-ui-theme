@@ -1,90 +1,90 @@
-// Displays selectable tabs above the editor.
-// Overrides: atom/tabs
+@tab-height: 26px;
+@tab-icon-size: 6px;
 
-@tab-height: 40px;
-@icon-size: 8px;
+// ------------------------------------------------------------------------ base
 
 .tab-bar {
+  position: relative;
+  overflow: hidden;
   margin: 0;
+  background-color: @tab-bar-border-color;
+  border-radius: unset;
+  transition: color 0.3s;
+}
+
+.tab-bar .tab {
+  position: relative;
+  height: @tab-height;
+  padding: 0 16px;
+  color: @tab-background-color;
+  line-height: @tab-height;
+  text-align: center;
+  background-color: transparent;
+  border-right: 1px solid @tab-background-color;
+  transition: color 0.3s;
+}
+
+.tab-bar .tab .title.temp::before,
+.tab-bar .tab .title.temp::after {
+  transition: color 0.3s;
+}
+
+.tab-bar .tab .close-icon {
+  display: none;
+}
+
+.tab-bar .tab.active .title {
   padding: 0;
-  background-color: @tab-bar-background-color;
-  border-bottom: 1px solid @tab-bar-border-color;
-  z-index: 1;
+}
 
-  .tab {
-    position: relative;
-    margin: 0;
-    padding: 0 1rem;
-    height: @tab-height;
-    line-height: @tab-height;
-    color: fadeout(@light-tone, 90%);
-    font-size: 1rem;
-    text-align: center;
-    transition: color 0.3s, background-color 0.3s;
+// ------------------------------------------------------------------ active tab
 
-    &.active {
-      color: fadeout(@light-tone, 60%);
+.tab-bar .tab.active,
+.tab-bar .tab.active .title.temp::before,
+.tab-bar .tab.active .title.temp::after {
+  color: @text-color;
+}
 
-      .title {
-        padding: 0;
-      }
-    }
+// ---------------------------------------------------------------- modified tab
 
-    // ------------------------------------------------------------ "close" icon
+.tab-bar .tab.modified::after {
+  content: "•";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 26px;
+  line-height: 26px;
+}
 
-    .close-icon {
-      display: none;
-    }
+// --------------------------------------------------------------- temporary tab
 
-    // ---------------------------------------------------------- "modified" tab
+.tab-bar .tab .title.temp {
+  font-style: normal;
 
-    &.modified::before {
-      position: absolute;
-      bottom: 2px;
-      left: calc(50% - 3px);
-      width: 6px;
-      height: 6px;
-      content: "";
-      border-radius: 100%;
-      background-color: @accent;
-    }
+  &::before {
+    content: "( ";
+    color: @tab-background-color;
+  }
 
-    // -------------------------------------------------------- "dragging a tab"
-
-    &.is-dragging {
-      background-color: darken(@tab-background-color, 2%);
-    }
+  &::after {
+    content: " )";
+    color: @tab-background-color;
   }
 }
 
 // ------------------------------------------------------------- hovered tab bar
 
 .tab-bar:hover {
-  .tab {
-    position: relative;
-    color: fadeout(@light-tone, 60%);
+  .tab:not(.active),
+  .tab:not(.active) .title.temp::before,
+  .tab:not(.active) .title.temp::after {
+    color: @text-color-subtle;
+  }
 
-    &::after {
-      position: absolute;
-      top: 0;
-      left: 5px;
-      right: 5px;
-      content: "";
-      background-color: @accent;
-    }
-
-    &:hover {
-      color: @light-tone;
-      &::after {
-        height: 1px;
-      }
-    }
-
-    &.active {
-      color: @light-tone;
-      &::after {
-        height: 3px;
-      }
-    }
+  .tab:not(.active):hover,
+  .tab:not(.active):hover .title.temp::before,
+  .tab:not(.active):hover .title.temp::after {
+    color: @text-color;
   }
 }

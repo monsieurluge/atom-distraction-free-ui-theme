@@ -1,52 +1,65 @@
-// ------------------------------------------------------------- general styling
-
-.tree-view .tree-view-root {
-  min-width: unset;
-}
-
-.tree-view-root {
-  opacity: 0.2;
-  transition: opacity 0.3s;
-}
-
-.project-root:not(:first-child) {
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top: 3px double rgba(255, 255, 255, 0.1);
-}
+// ------------------------------------------------------------------------ base
 
 .tree-view {
-  padding: 10px 20px 20px;
-  background-color: @tree-view-background-color;
+  opacity: 0.1;
   z-index: unset;
+  padding: 20px;
+  transition: opacity 0.3s;
 
-  .list-tree {
+  .tree-view-root {
     padding: 0;
-    color: @tree-view-text-color;
+    min-width: unset;
   }
 
-  .list-item,
-  .list-nested-item {
-    position: relative;
-    border-bottom: 1px solid transparent;
+  .project-root > .list-tree > li {
+    margin-left: 0;
+    padding-left: 0 !important;
   }
 
-  .list-item:not(.directory):not(.header),
-  .list-nested-item:not(.directory):not(.header) {
-    line-height: 1.8em;
+  .list-tree > li.list-item,
+  .header.list-item {
+    position: unset;
+    padding: 0 20px 0 8px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // ---------- root folder
+
+  .project-root-header {
+    overflow: hidden;
+    margin-bottom: 8px;
+    font-weight: bolder;
+    text-overflow: ellipsis;
+  }
+
+  .project-root:not(:first-child) {
+    margin-top: 1em;
+    padding-top: 1em;
   }
 
   // ---------- folders
 
-  .list-item.header {
-    font-weight: bolder;
-
-    .icon::before {
-      display: none;
-    }
+  .list-tree.has-collapsable-children .list-nested-item > .list-item::before {
+    display: none;
+    top: unset;
   }
 
-  // ---------- all items except folders / root
+  .directory.collapsed > .header > span::after {
+    content: " /";
+    position: relative;
+  }
+
+  .directory.expanded > .header > span::after {
+    content: " …";
+    position: relative;
+  }
+
+  // ---------- items icons
+
+  .list-item.header .icon::before {
+    display: none;
+  }
 
   .list-tree.has-collapsable-children .list-nested-item > .list-tree > li.list-item.file,
   .list-tree.has-collapsable-children .list-nested-item > .list-group > li.list-item.file {
@@ -80,116 +93,103 @@
 
 // ----------------------------------------------------------- hovered tree view
 
-.tree-view-root:hover {
-  opacity: 1;
-}
-
 .tree-view:hover {
-  .list-item.header:hover::before {
-    color: @accent;
+  opacity: 1;
+
+  // ---------- hovered items
+
+  .list-item:hover::before,
+  .list-tree.has-collapsable-children .list-nested-item:not(.selected) > .list-item:hover::before {
+    content: "";
+    display: block;
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    height: 25px;
+    width: 100%;
+    background-color: @base-border-color;
+    border-radius: 3px;
   }
 
-  .list-item:not(.header):not(.selected):hover::before {
-    height: 100%;
-    width: 1px;
-    left: -14px;
-    background-color: @accent;
-  }
-
-  // ---------- ignored items
-
-  .list-item.status-ignored,
-  .list-nested-item.status-ignored {
-    color: @tree-view-text-color-subtle;
+  .list-item:not(.selected) > span {
+    position: relative;
   }
 
   // ---------- selected items
 
   .list-item.selected,
   .list-nested-item.selected {
-    background-color: transparent;
-
-    &::before {
-      visibility: visible;
-      background-color: transparent;
-    }
-  }
-
-  .list-item.selected,
-  .list-nested-item.selected > .list-item.header:not(.project-root-header) {
     color: @tree-view-text-color-selected;
   }
 
-  .list-item.selected::before {
-    background-color: @accent;
-  }
-
-  .list-nested-item.directory.selected::before {
+  .list-item.selected::before,
+  .list-nested-item.selected::before {
     visibility: visible;
+    background-color: @accent;
+    border-radius: 3px;
   }
 
   // ---------- added items (version control)
 
-  .list-nested-item.status-added > .header::before {
-    color: @green;
+  .list-nested-item.status-added:not(.selected) > .header,
+  .list-item.file.status-added:not(.selected) {
+    color: @text-color;
   }
 
-  .list-item.status-added::before {
-    content: '';
+  .list-nested-item.collapsed.status-added > .header::after,
+  .list-item.file.status-added::after {
+    content: "✻";
     position: absolute;
-    top: 0;
-    left: -14px;
-    width: 1px;
-    height: 100%;
-    background-color: @green;
+    right: 0;
+    width: 16px;
+    height: 25px;
+    color: @text-color-subtle;
+    line-height: 25px;
+    text-align: center;
+    background-color: @base-background-color;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .list-nested-item.collapsed.status-added:hover > .header::after,
+  .list-item.file.status-added:hover::after {
+    background-color: @base-border-color;
+  }
+
+  .list-nested-item.collapsed.selected.status-added > .header::after,
+  .list-item.selected.file.status-added::after {
+    color: @base-background-color;
+    background-color: @accent;
   }
 
   // ---------- modified items (version control)
 
-  .list-nested-item.status-modified > .header::before {
-    color: @orange;
+  .list-nested-item.status-modified:not(.selected) > .header,
+  .list-item.file.status-modified:not(.selected) {
+    color: @text-color;
   }
 
-  .list-item.status-modified::before {
-    content: '';
+  .list-nested-item.collapsed.status-modified > .header::after,
+  .list-item.file.status-modified::after {
+    content: "•";
     position: absolute;
-    top: 0;
-    left: -14px;
-    width: 1px;
-    height: 100%;
-    background-color: @orange;
+    right: 0;
+    width: 16px;
+    height: 25px;
+    color: @text-color-subtle;
+    line-height: 25px;
+    text-align: center;
+    background-color: @base-background-color;
+    border-radius: 0 3px 3px 0;
   }
 
-  // ---------- selected items (part 2)
-
-  .list-item.selected::before {
-    width: 3px;
-    left: -15px;
+  .list-nested-item.collapsed.status-modified:hover > .header::after,
+  .list-item.file.status-modified:hover::after {
+    background-color: @base-border-color;
   }
 
-  // ---------- expanded items
-
-  .list-nested-item:not(.project-root).expanded::before {
-    position: absolute;
-    top: 16px;
-    left: 20px;
-    bottom: 8px;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  list-nested-item.project-root.expanded::before {
-    position: absolute;
-    top: 16px;
-    left: 2px;
-    bottom: 8px;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  // ---------- root folders
-
-  .project-root-header {
-    color: @tree-view-text-color;
+  .list-nested-item.collapsed.selected.status-modified > .header::after,
+  .list-item.selected.file.status-modified::after {
+    color: @base-background-color;
+    background-color: @accent;
   }
 }
