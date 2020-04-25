@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------- generic
 
 atom-workspace.workspace {
-  background-color: @base-background-color;
+  background-color: @base-dark-background-color;
 }
 
 .atom-dock-toggle-button {
@@ -10,15 +10,31 @@ atom-workspace.workspace {
 
 // ------------------------------------------------------------------ left panel
 
-atom-panel-container.left .atom-dock-inner.atom-dock-open {
-  border-right: 1px solid @base-border-color;
+atom-panel-container.left {
+  z-index: 2;
+  background-color: @base-dark-background-color;
 }
 
-.atom-dock-resize-handle.left {
+atom-panel-container.left .atom-dock-mask {
+  // overflow: unset;
+  background-color: unset;
+}
+
+atom-panel-container.left atom-pane-container.panes {
+  padding: 12px 0 12px 12px;
+}
+
+atom-panel-container.left .tab-bar {
+  border: unset;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.atom-dock-open .atom-dock-resize-handle.left {
   position: absolute;
-  z-index: 2;
-  height: 100%;
+  right: -8px;
   width: 4px;
+  height: 100%;
   background-color: transparent;
   border: none;
   transition: background-color 0.3s;
@@ -30,10 +46,14 @@ atom-panel-container.left .atom-dock-inner.atom-dock-open {
 
 // ------------------------------------------------------- center panel (editor)
 
-atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical atom-pane-container.panes {
-  atom-pane-axis.horizontal > atom-pane:not(:first-child),
-  atom-pane-axis.horizontal > atom-pane-axis.pane-column:not(:first-child) {
-    border-left: 1px solid @base-border-color;
+atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical > atom-pane-container.panes {
+  padding: 6px;
+
+  atom-pane {
+    overflow: hidden;
+    margin: 6px;
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   }
 
   // ---------- horizontal resize handle
@@ -65,14 +85,25 @@ atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical atom-
 
 // --------------------------------------------------------------- bottom panels
 
-atom-panel-container.bottom {
-  // todo
-}
-
-// ---------- bottom dock
-
 atom-dock.bottom {
-  // todo
+  .atom-dock-inner:not(.atom-dock-open) {
+    top: 30px;
+  }
+
+  .atom-dock-mask {
+    background-color: unset;
+  }
+
+  .atom-dock-content-wrapper {
+    padding: 0 12px 12px 12px;
+  }
+
+  atom-pane-container atom-pane {
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    background-color: @base-background-color;
+  }
 }
 
 .atom-dock-resize-handle.bottom {
@@ -87,4 +118,10 @@ atom-dock.bottom {
   &:hover {
     background-color: @accent;
   }
+}
+
+// ---------------------------------------------------------------------- footer
+
+atom-panel-container.footer {
+  z-index: 1;
 }
