@@ -6,9 +6,11 @@
 .tab-bar {
   position: relative;
   overflow: hidden;
+  z-index: 3;
   margin: 0;
-  background-color: @tab-bar-border-color;
+  background-color: @tab-bar-background-color;
   border-radius: unset;
+  border-bottom: 1px solid @tab-bar-border-color;
   transition: color 0.3s;
 }
 
@@ -20,8 +22,17 @@
   line-height: @tab-height;
   text-align: center;
   background-color: transparent;
-  border-right: 1px solid @tab-background-color;
   transition: color 0.3s;
+}
+
+.tab-bar .tab:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: 1px;
+  background-color: @tab-border-color;
 }
 
 .tab-bar .tab .title.temp::before,
