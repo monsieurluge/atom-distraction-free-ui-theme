@@ -4,6 +4,7 @@
   opacity: 0.1;
   z-index: unset;
   padding: 20px;
+  background-color: transparent;
   transition: opacity 0.3s;
 
   .tree-view-root {
@@ -107,7 +108,7 @@
     left: 0;
     height: 25px;
     width: 100%;
-    background-color: @base-border-color;
+    background-color: @base-background-color;
     border-radius: 3px;
   }
 
@@ -146,13 +147,13 @@
     color: @text-color-subtle;
     line-height: 25px;
     text-align: center;
-    background-color: @base-background-color;
+    background-color: @base-dark-background-color;
     border-radius: 0 3px 3px 0;
   }
 
   .list-nested-item.collapsed.status-added:hover > .header::after,
   .list-item.file.status-added:hover::after {
-    background-color: @base-border-color;
+    background-color: @base-background-color;
   }
 
   .list-nested-item.collapsed.selected.status-added > .header::after,
@@ -178,13 +179,13 @@
     color: @text-color-subtle;
     line-height: 25px;
     text-align: center;
-    background-color: @base-background-color;
+    background-color: @base-dark-background-color;
     border-radius: 0 3px 3px 0;
   }
 
   .list-nested-item.collapsed.status-modified:hover > .header::after,
   .list-item.file.status-modified:hover::after {
-    background-color: @base-border-color;
+    background-color: @base-background-color;
   }
 
   .list-nested-item.collapsed.selected.status-modified > .header::after,
