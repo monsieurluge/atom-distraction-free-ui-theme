@@ -1,177 +1,169 @@
 // --------------------------------------------------------------------- generic
 
 atom-workspace.workspace {
-  background-color: @base-background-color;
+  background-color: @app-background-color;
 }
-
-.panel-heading {
-  border-bottom: 1px solid @panel-heading-border-color;
-}
-
-.atom-dock-mask {
-  background-color: transparent;
-}
-
-// toggle button
 
 .atom-dock-toggle-button {
   display: none;
 }
 
-// resize handle
-
-atom-pane-resize-handle {
-  &::before {
-    background-color: transparent;
-    border: 2px solid transparent;
-    box-sizing: content-box;
-    transition: background-color 0.3s, border 0.3s;
-  }
-
-  &:hover::before {
-    background-color: @base-background-color;
-    border-color: @base-background-color;
-  }
-}
-
-.atom-dock-resize-handle {
-  background-color: transparent;
-  border: 2px solid transparent;
-  box-sizing: content-box;
-  transition: background-color 0.3s, border 0.3s;
-
-  &:hover {
-    background-color: @base-background-color;
-    border-color: @base-background-color;
-  }
-}
-
-// modal
-
-atom-panel.modal {
-  border: 1px solid @overlay-border-color;
-  border-top: none;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
-}
-
 // ------------------------------------------------------------------ left panel
 
-atom-workspace > atom-workspace-axis.horizontal {
-    position: relative;
-}
-
-atom-workspace > atom-workspace-axis.horizontal > .left {
-  background-color: transparent;
-  border-right: 1px solid @base-border-color;
-
-  .atom-dock-content-wrapper {
-    atom-pane-container {
-      z-index: 1;
-    }
-  }
-}
-
-.atom-dock-resize-handle.left {
-  position: absolute;
+atom-panel-container.left {
   z-index: 2;
-  height: 100%;
+  background-color: @app-background-color;
+}
+
+atom-panel-container.left .atom-dock-mask {
+  overflow: unset;
+  background-color: unset;
+}
+
+atom-panel-container.left atom-pane-container.panes {
+  padding: 12px 0 12px 12px;
+}
+
+atom-panel-container.left .tab-bar {
+  border: unset;
+  border-radius: @component-border-radius;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.atom-dock-open .atom-dock-resize-handle.left {
+  position: absolute;
+  right: -8px;
   width: 4px;
+  height: 100%;
+  background-color: transparent;
   border: none;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: @accent;
   }
 }
 
-// ---------------------------------------------------------------- center panel
+// ----------------------------------------------------------------- right panel
 
-atom-workspace-axis.vertical {
-  background-color: @base-background-color;
-  z-index: 1;
+atom-panel-container.right {
+  z-index: 2;
+  background-color: @app-background-color;
+}
 
-  atom-pane-resize-handle {
-    background-color: transparent;
-    border: none;
+atom-panel-container.right .atom-dock-mask {
+  overflow: unset;
+  background-color: unset;
+}
 
-    &:hover {
-      background-color: @accent;
-    }
+atom-panel-container.right atom-pane-container.panes {
+  padding: 12px 12px 12px 0;
+}
 
-    &::before {
-      display: none;
-    }
+atom-panel-container.right .tab-bar {
+  border: unset;
+  border-radius: @component-border-radius;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.atom-dock-open .atom-dock-resize-handle.right {
+  position: absolute;
+  left: -8px;
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: @accent;
+  }
+}
+
+// ------------------------------------------------------- center panel (editor)
+
+atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical > atom-pane-container.panes {
+  padding: 6px 6px 0 6px;
+
+  atom-pane {
+    overflow: hidden;
+    margin: 6px;
+    background-color: @base-background-color;
+    border-radius: @component-border-radius;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   }
 
-  atom-pane-resize-handle.horizontal {
-    width: 4px;
+  atom-text-editor.editor {
+    padding: 2px;
   }
 
-  atom-pane-resize-handle.vertical {
+  // ---------- horizontal resize handle
+
+  atom-pane-resize-handle.vertical::before {
     height: 4px;
+    top: -2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+  }
+
+  atom-pane-resize-handle.vertical:hover::before {
+    background-color: @accent;
+  }
+
+  // ---------- vertical resize handle
+
+  atom-pane-resize-handle.horizontal::before {
+    width: 4px;
+    left: -2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+  }
+
+  atom-pane-resize-handle.horizontal:hover::before {
+    background-color: @accent;
   }
 }
 
-atom-pane-axis.horizontal.pane-row:not(:first-child) {
-  border-top: 1px solid @base-border-color;
+// --------------------------------------------------------------- bottom panels
+
+atom-panel-container.bottom {
+  padding: 0 6px;
 }
-
-atom-pane-axis.horizontal.pane-row {
-  &>atom-pane:not(:first-child) {
-    border-left: 1px solid @base-border-color;
-  }
-}
-
-atom-pane-axis.vertical.pane-column:not(:first-child) {
-  border-left: 1px solid @base-border-color;
-}
-
-atom-pane-axis.vertical.pane-column {
-  &>atom-pane:not(:first-child) {
-    border-top: 1px solid @base-border-color;
-  }
-}
-
-// --------------------------------------------- center panel / find and replace
-
-atom-workspace-axis.vertical .find-and-replace,
-atom-workspace-axis.vertical .project-find {
-  border-top: 1px solid @base-border-color;
-}
-
-// ---------------------------------------------------------------- bottom panel
 
 atom-dock.bottom {
-  position: relative;
-}
+  .atom-dock-inner:not(.atom-dock-open) {
+    top: 30px;
+  }
 
-.atom-dock-content-wrapper.bottom {
-  border-top: 1px solid @base-border-color;
+  .atom-dock-mask {
+    background-color: unset;
+  }
+
+  atom-pane-container atom-pane {
+    overflow: hidden;
+    margin: 6px;
+    border-radius: @component-border-radius;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-color: @base-background-color;
+  }
 }
 
 .atom-dock-resize-handle.bottom {
   position: absolute;
-  top: -4px;
-  left: 0;
-  z-index: 1;
+  z-index: 2;
+  top: 0;
   width: 100%;
   height: 4px;
-  border-left: none;
-  border-right: none;
-}
+  background-color: transparent;
+  transition: background-color 0.3s;
 
-// ----------------------------------------------------------- top overlay modal
-
-atom-panel.modal.overlay.from-top {
-  top: 16px;
-}
-
-// ------------------------------------------------------------------ status bar
-
-atom-panel.footer.tool-panel.panel-footer {
-  z-index: 2;
-  background-color: @status-bar-background-color;
-
-  .status-bar {
-    background-color: transparent;
+  &:hover {
+    background-color: @accent;
   }
+}
+
+// ---------------------------------------------------------------------- footer
+
+atom-panel-container.footer {
+  z-index: 1;
 }

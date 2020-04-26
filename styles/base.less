@@ -1,24 +1,5 @@
-
-// Base
-// -------------------
-
-// Used for global styles
-// Or to override certain Atom core styles
-
 body {
   font-size: @font-size;
   color: @text-color;
-  background-color: @base-background-color;
-}
-
-atom-pane {
-  border-right: 1px solid @base-border-color;
-  &:last-child {
-    border-right: none;
-  }
-}
-
-// background color fix
-atom-text-editor.editor > div {
-    background-color: transparent !important;
+  background-color: @app-background-color;
 }

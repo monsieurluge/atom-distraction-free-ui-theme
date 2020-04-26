@@ -1,8 +1,16 @@
 // ---------------------------------------------------------------------- colors
 
-@dark-tone:  #3a3630;
-@light-tone: #cac7ba;
-@accent:     #deba2f;
+@background-base: #3a3630;
+@foreground-base: #cac7ba;
+@accent:          #deba2f;
+
+@background-low:  darken(@background-base, 8%);
+@background-med:  darken(@background-base, 5%);
+@background-high: lighten(@background-base, 5%);
+
+@foreground-low:  darken(@foreground-base, 30%);
+@foreground-med:  darken(@foreground-base, 15%);
+@foreground-high: lighten(@foreground-base, 5%);
 
 @cyan:   #62c5c1;
 @blue:   #75abd4;
@@ -11,32 +19,31 @@
 @purple: #a47dd4;
 @red:    #dc7069;
 
-// ----------------------------------------------------------------- base colors
-
-@base-background-color: @dark-tone;
-@base-border-color:     darken(@dark-tone, 5%);
-
 // --------------------------------------------------------- generic backgrounds
+
+@app-background-color:  @background-med;
+@base-background-color: @background-base;
+@base-border-color:     @background-high;
 
 @background-color-info:    hsl(208, 100%, 50%);
 @background-color-success: hsl(160,  70%, 36%);
 @background-color-warning: hsl(32,   60%, 50%);
 @background-color-error:   hsl(0,    70%, 50%);
 
-@background-color-highlight: lighten(@base-background-color, 5%);
-@background-color-selected:  lighten(@base-background-color, 10%);
+@background-color-highlight: @background-high;
+@background-color-selected:  @background-high;
 
 // ----------------------------------------------------------------------- texts
 
-@text-color:           @light-tone;
-@text-color-subtle:    fadeout(@text-color, 60%);
-@text-color-highlight: #ffffff;
-@text-color-selected:  #ffffff;
+@text-color:           @foreground-base;
+@text-color-subtle:    @foreground-low;
+@text-color-highlight: @foreground-high;
+@text-color-selected:  @foreground-high;
 
-@tree-view-text-color:           fadeout(@text-color, 30%);
+@tree-view-text-color:           @text-color;
 @tree-view-text-color-subtle:    @text-color-subtle;
 @tree-view-text-color-highlight: @text-color;
-@tree-view-text-color-selected:  @text-color;
+@tree-view-text-color-selected:  @base-background-color;
 
 @text-color-info:    @blue;
 @text-color-success: @green;
@@ -48,7 +55,7 @@
 @pane-item-background-color: @base-background-color;
 @pane-item-border-color:     @base-border-color;
 
-@input-background-color: darken(@base-background-color, 5%);
+@input-background-color: @base-background-color;
 @input-border-color:     @base-border-color;
 
 @tool-panel-background-color: @base-background-color;
@@ -63,21 +70,21 @@
 @overlay-background-color: @base-background-color;
 @overlay-border-color:     @base-border-color;
 
-@button-background-color:          lighten(@dark-tone, 10%);
-@button-background-color-hover:    lighten(@dark-tone, 15%);
+@button-background-color:          @background-base;
+@button-background-color-hover:    @background-low;
 @button-background-color-selected: @accent;
-@button-border-color:              @base-border-color;
+@button-border-color:              @background-med;
 
 @tab-bar-background-color:    @base-background-color;
-@tab-bar-border-color:        @base-background-color;
+@tab-bar-border-color:        @app-background-color;
 @tab-background-color:        @base-background-color;
 @tab-background-color-active: @base-background-color;
-@tab-border-color:            @base-background-color;
+@tab-border-color:            @app-background-color;
 
-@tree-view-background-color: @base-background-color;
-@tree-view-border-color:     @tree-view-background-color;
+@tree-view-background-color: @background-med;
+@tree-view-border-color:     @background-med;
 
-@status-bar-background-color: darken(@base-background-color, 5%);
+@status-bar-background-color: @app-background-color;
 
 // ------------------------------------------------------------------------ site
 
@@ -99,5 +106,5 @@
 
 // ------------------------------------------------------------------------ misc
 
-@component-border-radius: 2px;
+@component-border-radius: 4px;
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
