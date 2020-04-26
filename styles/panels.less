@@ -16,6 +16,7 @@ atom-panel-container.left {
 }
 
 atom-panel-container.left .atom-dock-mask {
+  overflow: unset;
   background-color: unset;
 }
 
@@ -26,12 +27,48 @@ atom-panel-container.left atom-pane-container.panes {
 atom-panel-container.left .tab-bar {
   border: unset;
   border-radius: 4px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .atom-dock-open .atom-dock-resize-handle.left {
   position: absolute;
   right: -8px;
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: @accent;
+  }
+}
+
+// ----------------------------------------------------------------- right panel
+
+atom-panel-container.right {
+  z-index: 2;
+  background-color: @base-dark-background-color;
+}
+
+atom-panel-container.right .atom-dock-mask {
+  overflow: unset;
+  background-color: unset;
+}
+
+atom-panel-container.right atom-pane-container.panes {
+  padding: 12px 12px 12px 0;
+}
+
+atom-panel-container.right .tab-bar {
+  border: unset;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.atom-dock-open .atom-dock-resize-handle.right {
+  position: absolute;
+  left: -8px;
   width: 4px;
   height: 100%;
   background-color: transparent;
@@ -53,7 +90,11 @@ atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical > ato
     margin: 6px;
     background-color: @base-background-color;
     border-radius: 4px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  atom-text-editor.editor {
+    padding: 2px;
   }
 
   // ---------- horizontal resize handle
@@ -102,7 +143,7 @@ atom-dock.bottom {
     overflow: hidden;
     margin: 6px;
     border-radius: 4px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     background-color: @base-background-color;
   }
 }
