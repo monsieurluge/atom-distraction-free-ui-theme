@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------- generic
 
 atom-workspace.workspace {
-  background-color: @base-dark-background-color;
+  background-color: @app-background-color;
 }
 
 .atom-dock-toggle-button {
@@ -12,7 +12,7 @@ atom-workspace.workspace {
 
 atom-panel-container.left {
   z-index: 2;
-  background-color: @base-dark-background-color;
+  background-color: @app-background-color;
 }
 
 atom-panel-container.left .atom-dock-mask {
@@ -26,7 +26,7 @@ atom-panel-container.left atom-pane-container.panes {
 
 atom-panel-container.left .tab-bar {
   border: unset;
-  border-radius: 4px;
+  border-radius: @component-border-radius;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -48,7 +48,7 @@ atom-panel-container.left .tab-bar {
 
 atom-panel-container.right {
   z-index: 2;
-  background-color: @base-dark-background-color;
+  background-color: @app-background-color;
 }
 
 atom-panel-container.right .atom-dock-mask {
@@ -62,7 +62,7 @@ atom-panel-container.right atom-pane-container.panes {
 
 atom-panel-container.right .tab-bar {
   border: unset;
-  border-radius: 4px;
+  border-radius: @component-border-radius;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -89,7 +89,7 @@ atom-workspace atom-workspace-axis.horizontal atom-workspace-axis.vertical > ato
     overflow: hidden;
     margin: 6px;
     background-color: @base-background-color;
-    border-radius: 4px;
+    border-radius: @component-border-radius;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   }
 
@@ -142,7 +142,7 @@ atom-dock.bottom {
   atom-pane-container atom-pane {
     overflow: hidden;
     margin: 6px;
-    border-radius: 4px;
+    border-radius: @component-border-radius;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     background-color: @base-background-color;
   }
