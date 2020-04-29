@@ -15,6 +15,22 @@ atom-panel-container.left {
   background-color: @app-background-color;
 }
 
+// ---------- tab bar
+
+atom-panel-container.left .tab-bar {
+  opacity: 0.3;
+  border: unset;
+  border-radius: @component-border-radius;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s;
+}
+
+atom-panel-container.left:hover .tab-bar {
+  opacity: 1;
+}
+
+// ---------- content
+
 atom-panel-container.left .atom-dock-mask {
   overflow: unset;
   background-color: unset;
@@ -22,12 +38,6 @@ atom-panel-container.left .atom-dock-mask {
 
 atom-panel-container.left atom-pane-container.panes {
   padding: 12px 0 12px 12px;
-}
-
-atom-panel-container.left .tab-bar {
-  border: unset;
-  border-radius: @component-border-radius;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .atom-dock-open .atom-dock-resize-handle.left {
