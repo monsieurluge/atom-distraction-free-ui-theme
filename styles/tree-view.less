@@ -30,8 +30,8 @@
   .project-root-header {
     overflow: hidden;
     margin-bottom: 8px;
-    font-weight: bolder;
     text-overflow: ellipsis;
+    border-bottom: 1px solid transparent;
   }
 
   .project-root:not(:first-child) {
@@ -96,6 +96,10 @@
 
 .tree-view:hover {
   opacity: 1;
+
+  .project-root-header {
+    border-bottom: 1px solid @text-color-subtle;
+  }
 
   // ---------- hovered items
 
